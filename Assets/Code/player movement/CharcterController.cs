@@ -11,8 +11,8 @@ public class CharcterController : MonoBehaviour
     GameObject cam;
     Rigidbody rb;
 
-    float rotationSpeed = 2.0f;
-    float camRotationSpeed = 1.5f;
+    public float rotationSpeed = 2.0f;
+    public float camRotationSpeed = 1.5f;
 
     bool isOnGround;
     public GameObject groundChecker;
@@ -36,7 +36,7 @@ public class CharcterController : MonoBehaviour
             rb.AddForce(transform.up * jumpForce);
         }
 
-        Vector3 newVelocity = transform.forward * Input.GetAxis("Vertical") * maxSpeed;
+        Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
         rb.velocity = new Vector3(newVelocity.x, rb.velocity.y, newVelocity.z);
 
         rotation = rotation + Input.GetAxis("Mouse X") * rotationSpeed;
