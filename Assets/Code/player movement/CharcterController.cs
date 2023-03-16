@@ -41,7 +41,6 @@ public class CharcterController : MonoBehaviour
 
         rotation = rotation + Input.GetAxis("Mouse X") * rotationSpeed;
         transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f));       
-        // WONT WORK COS CODE IS FOR 3RD PERSON CAMERA NOT 1ST PERSON
 
         camRotation = camRotation + Input.GetAxis("Mouse Y") * camRotationSpeed;
         cam.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0.0f, 0.0f));
