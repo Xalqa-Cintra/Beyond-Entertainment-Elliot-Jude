@@ -21,8 +21,10 @@ public class CharcterController : MonoBehaviour
 
 
 
+
     void Start()
     {
+       
         cam = GameObject.Find("Main Camera");
         rb = GetComponent<Rigidbody>();
     }
@@ -44,5 +46,8 @@ public class CharcterController : MonoBehaviour
 
         camRotation = camRotation + Input.GetAxis("Mouse Y") * camRotationSpeed;
         cam.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0.0f, 0.0f));
+
+
     }
+
 }
