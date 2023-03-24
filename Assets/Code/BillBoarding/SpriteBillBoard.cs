@@ -1,9 +1,19 @@
 using UnityEngine;
 
 public class SpriteBillBoard : MonoBehaviour
-{ 
-    private void Update()
+{
+    [SerializeField] bool FreezeXZAxis = true;
+
+    private void LateUpdate()
     {
-        transform.rotation = Quaternion.Euler(0f,Camera.main.transform.rotation.eulerAngles.y, 0f);
+        if (FreezeXZAxis)
+        {
+            transform.rotation = Quaternion.Euler(0f, Camera.main.transform.rotation.eulerAngles.y, 0f);
+        }
+        else
+        {
+            transform.rotation = Camera.main.transform.rotation;
+        }
     }
+
 }
