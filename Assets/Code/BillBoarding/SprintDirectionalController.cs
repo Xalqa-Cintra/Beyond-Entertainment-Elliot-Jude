@@ -21,6 +21,18 @@ public class SprintDirectionalController : MonoBehaviour
 
         float angle = Mathf.Abs(signedAngle);
 
+
+        // this changes the side animation based on what side
+        
+        if (signedAngle < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
+
         if (angle < backAngle)
         {
             // Back animation
@@ -28,12 +40,17 @@ public class SprintDirectionalController : MonoBehaviour
         }
         else if (angle < sideAngle)
         {
+            // side animtion, in this case, this is the right animation
             animationDirection = new Vector2(1f, 0f);
         }
         else
         {
+            // front animation
             animationDirection = new Vector2(0f, 1f);
         }
+
+        animator.SetFloat("moveX", animationDirection.x);
+        animator.SetFloat("moveY", animationDirection.y);
 
     }
 }
