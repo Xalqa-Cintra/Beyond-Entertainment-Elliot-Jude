@@ -20,7 +20,7 @@ public class SoldierCode : MonoBehaviour
     }
     private void OnBecameVisible()
     {
-        if(player.GetComponent<MainMovement>().takingPhoto)
+        //if(player.GetComponent<>().takingPhoto)
         {
             
         }
