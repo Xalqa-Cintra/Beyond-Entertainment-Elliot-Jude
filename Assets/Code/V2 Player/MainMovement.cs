@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainMovement : MonoBehaviour
 {
-
+    public bool takingPhoto;
     public CharacterController controller;
 
     public float speed = 12f;

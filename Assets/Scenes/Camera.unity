@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 44940315}
   - component: {fileID: 44940314}
   - component: {fileID: 44940313}
+  - component: {fileID: 44940319}
   - component: {fileID: 44940318}
   - component: {fileID: 44940320}
   m_Layer: 0
@@ -263,6 +264,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &44940319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44940312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d3f47f99f714f4fa00ae6006726b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  allsoldiers: []
 --- !u!95 &44940320
 Animator:
   serializedVersion: 3
@@ -639,8 +654,9 @@ GameObject:
   - component: {fileID: 1424973638}
   - component: {fileID: 1424973637}
   - component: {fileID: 1424973636}
+  - component: {fileID: 1424973640}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Impish placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -722,6 +738,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1424973640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424973635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c307d6a56a8e2a42aeede54702d4e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moral: 
+  immoral: 
+  neutral: 
+  canSee: 0
 --- !u!1 &1997978295
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,8 +766,9 @@ GameObject:
   - component: {fileID: 1997978298}
   - component: {fileID: 1997978297}
   - component: {fileID: 1997978296}
+  - component: {fileID: 1997978300}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Sarge placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -817,3 +850,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1997978300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997978295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c307d6a56a8e2a42aeede54702d4e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moral: 
+  immoral: 
+  neutral: 
+  canSee: 0
