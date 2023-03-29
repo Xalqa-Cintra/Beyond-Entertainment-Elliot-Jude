@@ -28,7 +28,7 @@ public class CharacterController : MonoBehaviour
 
         xRotation += mouseY;
 
-        Vector3 newVelocity = transform.forward * Input.GetAxis("Vertical") * maxSpeed;
+        Vector3 newVelocity = (transform.forward * Input.GetAxis("Vertical") * maxSpeed) + (transform.right * Input.GetAxis("Horizontal") * maxSpeed);
         rb.velocity = new Vector3(newVelocity.x, rb.velocity.y, newVelocity.z);
 
         rotation = rotation + Input.GetAxis("Mouse X") * rotationSpeed;
@@ -37,7 +37,7 @@ public class CharacterController : MonoBehaviour
         camRotation = camRotation + Input.GetAxis("Mouse Y") * camRoatationSpeed;
         cam.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0.0f, 0.0f));
 
-        camRotation = Mathf.Clamp(camRotation, -45f, 45f);
+        camRotation = Mathf.Clamp(camRotation, -30f, 30f);
         
     }
 }
