@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
     Rigidbody rb;
 
     float rotationSpeed = 2.0f;
-    float camRoatationSpeed = 1.5f;
+    float camRoatationSpeed = -1.5f;
 
     void Start()
     {
