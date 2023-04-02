@@ -7,8 +7,17 @@ public class PhotoCapture : MonoBehaviour
 {
     [Header("Photo Taker")]
     [SerializeField] private Image photoDislayArea;
+    [SerializeField] private GameObject photoFrame;
+
+    [Header("Flash Effect")]
+    [SerializeField] private GameObject cameraFlash;
+    [SerializeField] private float flashTime;
+
+    [Header("Photo Fader Effect")]
+    [SerializeField] private Animator fadingAnimation;
 
     private Texture2D screenCapture;
+    private bool viewingPhoto;
 
     private void Start()
     {
@@ -19,12 +28,22 @@ public class PhotoCapture : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(CapturePhoto());
+            if(!viewingPhoto)
+            {
+                StartCoroutine(CapturePhoto());
+            }
+            else
+            {
+                RemovePhoto();
+            }
         }
     }
 
     IEnumerator CapturePhoto()
     {
+        // Camera UI set False
+        viewingPhoto = true;
+
         yield return new WaitForEndOfFrame();
 
         Rect regionToRead = new Rect(0, 0, Screen.width, Screen.height);
@@ -38,5 +57,27 @@ public class PhotoCapture : MonoBehaviour
     {
         Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
         photoDislayArea.sprite = photoSprite;
+
+
+        photoFrame.SetActive(true);
+        StartCoroutine(CameraFlashEffect());
+        fadingAnimation.Play("PhotoFade");
+    }
+
+    IEnumerator CameraFlashEffect()
+    {
+        cameraFlash.SetActive(true);
+        yield return new WaitForSeconds(flashTime);
+        cameraFlash.SetActive(false);
+    }
+
+  
+
+
+    void RemovePhoto()
+    {
+        viewingPhoto = false;
+        photoFrame.SetActive(false);
+        // CameraUI true
     }
 }
