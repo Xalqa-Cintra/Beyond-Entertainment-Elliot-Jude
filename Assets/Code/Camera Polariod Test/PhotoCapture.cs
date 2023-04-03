@@ -17,8 +17,8 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private Animator fadingAnimation;
 
     private Texture2D screenCapture;
-    private bool viewingPhoto;
-
+    public bool viewingPhoto;
+    public bool canTakePhoto;
     private void Start()
     {
         screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
@@ -26,9 +26,12 @@ public class PhotoCapture : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+
+
+
+        if (Input.GetMouseButtonDown(0) && canTakePhoto)
         {
-            if(!viewingPhoto)
+            if (!viewingPhoto)
             {
                 StartCoroutine(CapturePhoto());
             }
@@ -71,7 +74,7 @@ public class PhotoCapture : MonoBehaviour
         cameraFlash.SetActive(false);
     }
 
-  
+
 
 
     void RemovePhoto()
@@ -80,4 +83,9 @@ public class PhotoCapture : MonoBehaviour
         photoFrame.SetActive(false);
         // CameraUI true
     }
+
+    //create gameobject of picture
+    //put moral value into it
+    //place in darkroom
+    //let player be able to pick it
 }

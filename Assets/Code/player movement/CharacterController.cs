@@ -11,7 +11,7 @@ public class CharacterController : MonoBehaviour
     float sensY;
     public GameObject cam;
     Rigidbody rb;
-
+    public GameObject cameraManager;
     float rotationSpeed = 2.0f;
     float camRoatationSpeed = -1.5f;
 
@@ -38,6 +38,15 @@ public class CharacterController : MonoBehaviour
         cam.transform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0.0f, 0.0f));
 
         camRotation = Mathf.Clamp(camRotation, -30f, 30f);
-        
+
+        if (Input.GetMouseButton(1))
+        {
+            cameraManager.GetComponent<PhotoCapture>().canTakePhoto = true;
+
+        }
+        else
+        {
+            cameraManager.GetComponent<PhotoCapture>().canTakePhoto = false;
+        }
     }
 }
