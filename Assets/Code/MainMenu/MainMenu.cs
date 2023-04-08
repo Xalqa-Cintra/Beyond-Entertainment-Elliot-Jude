@@ -10,9 +10,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("MainGame");
     }
 
-    public void Options()
+    public void Settings()
     {
-        SceneManager.LoadScene("OptionsMenu");
+        SceneManager.LoadScene("SettingsMenu");
     }
 
     public void Back()

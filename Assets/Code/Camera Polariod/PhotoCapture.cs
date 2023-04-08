@@ -88,4 +88,7 @@ public class PhotoCapture : MonoBehaviour
     //put moral value into it
     //place in darkroom
     //let player be able to pick it
+    //add somewhere for the photos to be saved when taken 
+    //UI that chnages the amount of photos left
+    //collectables that gives the player more photos each day.
 }
