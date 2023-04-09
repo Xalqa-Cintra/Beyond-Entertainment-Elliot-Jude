@@ -1304,7 +1304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeMultiplier: 2000
-  startHour: 12
+  startHour: 0
   timeText: {fileID: 573806253}
   sunLight: {fileID: 78881044}
   sunriseHour: 7
