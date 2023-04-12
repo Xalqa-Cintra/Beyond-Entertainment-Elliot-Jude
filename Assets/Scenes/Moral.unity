@@ -647,8 +647,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424973635}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.421785, y: -3.2399998, z: 10.809938}
-  m_LocalScale: {x: 2.5781, y: 14.256119, z: -0.11734738}
+  m_LocalPosition: {x: 10.421785, y: 0.31, z: 10.809938}
+  m_LocalScale: {x: 2.5781, y: 3.207912, z: -0.11734738}
   m_Children: []
   m_Father: {fileID: 1612794741}
   m_RootOrder: 0
@@ -813,6 +813,7 @@ MonoBehaviour:
   soldier2Seen: 0
   soldier3Seen: 0
   soldier4Seen: 0
+  totalMoral: 0
 --- !u!4 &1612794741
 Transform:
   m_ObjectHideFlags: 0
@@ -1111,8 +1112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997978295}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.808215, y: -3.2399998, z: 1.9099388}
-  m_LocalScale: {x: 1, y: 5.5297, z: 1}
+  m_LocalPosition: {x: -8.808215, y: -0.33, z: 1.9099388}
+  m_LocalScale: {x: 1, y: 3.729506, z: 1}
   m_Children: []
   m_Father: {fileID: 1612794741}
   m_RootOrder: 1
