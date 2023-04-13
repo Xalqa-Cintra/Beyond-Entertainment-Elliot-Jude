@@ -13,7 +13,6 @@ public class SoldierState : MonoBehaviour
 
     public bool canSee;
 
-
     public LayerMask npcLayer;
     public GameObject player;
 
@@ -27,7 +26,7 @@ public class SoldierState : MonoBehaviour
 
     void CheckIfSeen()
     {
-      if(Physics.Linecast(player.transform.position, this.transform.position, npcLayer))
+      if(Physics.Linecast(player.transform.position, this.transform.position,npcLayer))
         {
             canSee= false;
             Debug.DrawLine(player.transform.position, this.transform.position, Color.green, 15, false);
