@@ -14,6 +14,10 @@ public class CharacterController : MonoBehaviour
     public GameObject cameraManager;
     float rotationSpeed = 2.0f;
     float camRoatationSpeed = -1.5f;
+    bool isOnGround;
+    public GameObject groundChecker;
+    public LayerMask groudLayer;
+    public float jumpForce = 300.0f;
 
     void Start()
     {
@@ -24,7 +28,15 @@ public class CharacterController : MonoBehaviour
     }
 
     void Update()
-    { float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+    {
+        isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groudLayer);
+
+        if (isOnGround == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(transform.up * jumpForce);
+        }
+
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
         xRotation += mouseY;
 
