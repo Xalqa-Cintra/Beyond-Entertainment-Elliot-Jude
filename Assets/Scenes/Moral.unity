@@ -864,6 +864,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1126296983}
     - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
+      propertyPath: photoLimit
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
       propertyPath: cameraFlash
       value: 
       objectReference: {fileID: 583241370}
