@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,9 @@ public class PhotoCapture : MonoBehaviour
 
     private Texture2D screenCapture;
     public bool viewingPhoto;
-    public bool canTakePhoto;
+    public bool canTakePhoto, photoRemoved, inCamera;
+
+    public int photoLimit;
     private void Start()
     {
         screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
@@ -29,16 +32,21 @@ public class PhotoCapture : MonoBehaviour
 
 
 
-        if (Input.GetMouseButtonDown(0) && canTakePhoto)
+        if (Input.GetMouseButtonDown(0) && canTakePhoto && photoLimit > 0)
         {
             if (!viewingPhoto)
             {
                 StartCoroutine(CapturePhoto());
+                photoRemoved = false;
+             
             }
             else
             {
                 RemovePhoto();
+                photoRemoved = true;
+                photoLimit -= 1;
             }
+            
         }
     }
 
@@ -81,6 +89,7 @@ public class PhotoCapture : MonoBehaviour
     {
         viewingPhoto = false;
         photoFrame.SetActive(false);
+ 
         // CameraUI true
     }
 

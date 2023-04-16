@@ -10,6 +10,7 @@ public class SoldierCode : MonoBehaviour
     public GameObject[] allsoldiers;
 
     public bool soldier1Seen, soldier2Seen, soldier3Seen, soldier4Seen;
+    bool receivedInfo;
     public int totalMoral;
 
     //linecast to see, mark bool seen if true, if it is true then pull value, stick value into photo manager
@@ -26,29 +27,47 @@ public class SoldierCode : MonoBehaviour
     void Update()
     {
         if (cameraManager.GetComponent<PhotoCapture>().viewingPhoto)
-        {GetInfo();}
-        Debug.Log(totalMoral);
+        {
+            GetInfo();
+            if (!receivedInfo)
+            {
+                Debug.Log("Total Moral is:" + totalMoral);
+                receivedInfo = true;
+            }
+        }
+        if (cameraManager.GetComponent<PhotoCapture>().photoRemoved)
+        {
+            totalMoral = 0;
+            soldier1Seen = false;
+            soldier2Seen = false;
+            soldier3Seen = false;
+            soldier4Seen = false;
+        }
+        else
+        {
+            receivedInfo = true;
+        }
     }
 
     private void GetInfo()
     {
         
-        if (allsoldiers[0].GetComponent<SoldierState>().canSee && (!soldier1Seen || !soldier2Seen || !soldier3Seen || !soldier4Seen))
+        if (allsoldiers[0].GetComponent<SoldierState>().canSee && !soldier1Seen)
         {
          totalMoral += allsoldiers[0].GetComponent<SoldierState>().moralValue;
          soldier1Seen = true;
         }
-        if (allsoldiers[1].GetComponent<SoldierState>().canSee)
+        if (allsoldiers[1].GetComponent<SoldierState>().canSee && !soldier2Seen)
         {
          totalMoral += allsoldiers[1].GetComponent<SoldierState>().moralValue;
          soldier2Seen = true;
         }
-        if (allsoldiers[2].GetComponent<SoldierState>().canSee)
+        if (allsoldiers[2].GetComponent<SoldierState>().canSee && !soldier3Seen)
         {
           totalMoral += allsoldiers[2].GetComponent<SoldierState>().moralValue;
           soldier3Seen = true;
         }
-        if (allsoldiers[3].GetComponent<SoldierState>().canSee)
+        if (allsoldiers[3].GetComponent<SoldierState>().canSee && !soldier4Seen)
         {
          totalMoral += allsoldiers[3].GetComponent<SoldierState>().moralValue;
          soldier4Seen = true;
