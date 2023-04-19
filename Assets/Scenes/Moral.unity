@@ -300,6 +300,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4452802056128346955, guid: 77062de2b43f2f24c81e71b5c6a092c9, type: 3}
+      propertyPath: maxSprint
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452802056128346955, guid: 77062de2b43f2f24c81e71b5c6a092c9, type: 3}
       propertyPath: cameraManager
       value: 
       objectReference: {fileID: 1639092729}
@@ -454,7 +458,7 @@ RectTransform:
   m_LocalScale: {x: 0.11894, y: 0.11894, z: 0.11894}
   m_Children: []
   m_Father: {fileID: 1189089161}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -738,11 +742,11 @@ RectTransform:
   m_Children:
   - {fileID: 1907517257}
   - {fileID: 990373558}
-  - {fileID: 1504900186}
-  - {fileID: 1688439095}
-  - {fileID: 1933521225}
-  - {fileID: 1331223763}
   - {fileID: 1085119099}
+  - {fileID: 1331223763}
+  - {fileID: 1688439095}
+  - {fileID: 1504900186}
+  - {fileID: 1933521225}
   m_Father: {fileID: 1488670636}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -781,7 +785,7 @@ RectTransform:
   m_LocalScale: {x: 0.11894, y: 0.11894, z: 0.11894}
   m_Children: []
   m_Father: {fileID: 1189089161}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1071,7 +1075,7 @@ RectTransform:
   m_LocalScale: {x: 0.11894, y: 0.11894, z: 0.11894}
   m_Children: []
   m_Father: {fileID: 1189089161}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1141,6 +1145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraManager: {fileID: 1639092729}
+  added: 2
 --- !u!1 &1612794738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1221,7 @@ PrefabInstance:
       objectReference: {fileID: 1126296983}
     - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
       propertyPath: photoLimit
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
       propertyPath: cameraFlash
@@ -1230,6 +1235,34 @@ PrefabInstance:
       propertyPath: photoDislayArea
       value: 
       objectReference: {fileID: 1126296981}
+    - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
+      propertyPath: photoicons.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
+      propertyPath: photoicons.Array.data[0]
+      value: 
+      objectReference: {fileID: 990373557}
+    - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
+      propertyPath: photoicons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1085119098}
+    - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
+      propertyPath: photoicons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1331223762}
+    - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
+      propertyPath: photoicons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1688439094}
+    - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
+      propertyPath: photoicons.Array.data[4]
+      value: 
+      objectReference: {fileID: 1504900185}
+    - target: {fileID: 8129910759491963344, guid: e25380c2239596041a05230992fded3f, type: 3}
+      propertyPath: photoicons.Array.data[5]
+      value: 
+      objectReference: {fileID: 1933521224}
     - target: {fileID: 8129910759491963345, guid: e25380c2239596041a05230992fded3f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1334,7 +1367,7 @@ RectTransform:
   m_LocalScale: {x: 0.11894, y: 0.11894, z: 0.11894}
   m_Children: []
   m_Father: {fileID: 1189089161}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1691,7 +1724,7 @@ RectTransform:
   m_LocalScale: {x: 0.11894, y: 0.11894, z: 0.11894}
   m_Children: []
   m_Father: {fileID: 1189089161}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

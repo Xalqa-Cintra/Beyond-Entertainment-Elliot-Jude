@@ -23,10 +23,11 @@ public class PhotoCapture : MonoBehaviour
     public bool viewingPhoto;
     public bool canTakePhoto, photoRemoved, inCamera;
 
-
-    public int photoLimit;
+    
+    public int photoLimit, photoTaken;
     private void Start()
     {
+        photoicons[photoLimit].SetActive(true);
         screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         camHud.SetActive(false);
     }
@@ -42,23 +43,26 @@ public class PhotoCapture : MonoBehaviour
             camHud.SetActive(false);
         }
 
-
-        if (Input.GetMouseButtonDown(0) && canTakePhoto && photoLimit > 0)
-        {
-            if (!viewingPhoto)
-            {
-                StartCoroutine(CapturePhoto());
-                photoRemoved = false;
-             
-            }
-            else
-            {
-                RemovePhoto();
-                photoRemoved = true;
-                photoLimit -= 1;
-            }
             
-        }
+
+            if (Input.GetMouseButtonDown(0) && canTakePhoto && photoLimit > 0)
+            {
+                if (!viewingPhoto)
+                {
+                    StartCoroutine(CapturePhoto());
+                    photoRemoved = false;
+
+                }
+                else
+                {
+                    RemovePhoto();
+                    photoRemoved = true;
+                    
+                }
+
+            }
+        
+
     }
 
     IEnumerator CapturePhoto()
@@ -99,10 +103,25 @@ public class PhotoCapture : MonoBehaviour
     void RemovePhoto()
     {
         viewingPhoto = false;
+        photoLimit --;
+        photoTaken++;
+        CheckLimit();
         photoFrame.SetActive(false);
- 
+        
+
         // CameraUI true
     }
+
+    void CheckLimit()
+    {
+        photoicons[photoTaken].SetActive(false);
+        //photoLimit--;
+        //ArrayList[photoLimit].SetActive(false);
+
+    }
+
+    //Gamobject[] store all shots
+    //when take shot, disable 1 
 
     //create gameobject of picture
     //put moral value into it
