@@ -22,6 +22,7 @@ public class CharacterController : MonoBehaviour
     public float jumpForce = 300.0f;
     public float maxSprint = 5.0f;
     float sprintTimer;
+    public int added;
 
     void Start()
     {
@@ -76,5 +77,17 @@ public class CharacterController : MonoBehaviour
             cameraManager.GetComponent<PhotoCapture>().canTakePhoto = !cameraManager.GetComponent<PhotoCapture>().canTakePhoto;
 
         }
+    }
+    
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Camera Pickup")
+        {
+            cameraManager.GetComponent<PhotoCapture>().photoLimit += added;
+            cameraManager.GetComponent<PhotoCapture>().SetMaxLimit();
+            cameraManager.GetComponent<PhotoCapture>().photoTaken = 0;
+        }
+        Destroy(other.gameObject);
     }
 }

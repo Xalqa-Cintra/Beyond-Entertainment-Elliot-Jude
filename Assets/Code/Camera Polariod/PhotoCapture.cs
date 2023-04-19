@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 public class PhotoCapture : MonoBehaviour
@@ -22,12 +23,14 @@ public class PhotoCapture : MonoBehaviour
     private Texture2D screenCapture;
     public bool viewingPhoto;
     public bool canTakePhoto, photoRemoved, inCamera;
-
+    
+    
     
     public int photoLimit, photoTaken;
     private void Start()
     {
-        photoicons[photoLimit].SetActive(true);
+        SetMaxLimit();
+       
         screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         camHud.SetActive(false);
     }
@@ -36,6 +39,8 @@ public class PhotoCapture : MonoBehaviour
     {
         if(canTakePhoto)
         {
+            
+
             camHud.SetActive(true);
         }
         else
@@ -55,6 +60,7 @@ public class PhotoCapture : MonoBehaviour
                 }
                 else
                 {
+                    CheckLimit();
                     RemovePhoto();
                     photoRemoved = true;
                     
@@ -105,7 +111,6 @@ public class PhotoCapture : MonoBehaviour
         viewingPhoto = false;
         photoLimit --;
         photoTaken++;
-        CheckLimit();
         photoFrame.SetActive(false);
         
 
@@ -115,9 +120,40 @@ public class PhotoCapture : MonoBehaviour
     void CheckLimit()
     {
         photoicons[photoTaken].SetActive(false);
-        //photoLimit--;
-        //ArrayList[photoLimit].SetActive(false);
+    }
 
+    public void SetMaxLimit()
+    {
+        switch(photoLimit)
+        {
+            case 1:
+                photoicons[0].SetActive(true); break;
+            case 2:
+                photoicons[0].SetActive(true);
+                photoicons[1].SetActive(true); break;
+            case 3:
+                photoicons[0].SetActive(true);
+                photoicons[1].SetActive(true);
+                photoicons[2].SetActive(true); break;
+            case 4:
+                photoicons[0].SetActive(true);
+                photoicons[1].SetActive(true);
+                photoicons[2].SetActive(true);
+                photoicons[3].SetActive(true); break;
+            case 5:
+                photoicons[0].SetActive(true);
+                photoicons[1].SetActive(true);
+                photoicons[2].SetActive(true);
+                photoicons[3].SetActive(true);
+                photoicons[4].SetActive(true); break;
+            case 6:
+                photoicons[0].SetActive(true);
+                photoicons[1].SetActive(true);
+                photoicons[2].SetActive(true);
+                photoicons[3].SetActive(true);
+                photoicons[4].SetActive(true);
+                photoicons[5].SetActive(true); break;
+        }
     }
 
     //Gamobject[] store all shots
@@ -128,6 +164,4 @@ public class PhotoCapture : MonoBehaviour
     //place in darkroom
     //let player be able to pick it
     //add somewhere for the photos to be saved when taken 
-    //UI that chnages the amount of photos left
-    //collectables that gives the player more photos each day.
 }
