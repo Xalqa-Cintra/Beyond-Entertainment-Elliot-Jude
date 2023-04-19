@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    float maxSpeed = 12.0f;
+    float maxSpeed;
+    float normalSpeed = 10.0f;
+    float sprintSpeed = 20.0f;
     float rotation = 0.0f;
     float camRotation = 0.0f;
     float xRotation;
@@ -18,10 +20,12 @@ public class CharacterController : MonoBehaviour
     public GameObject groundChecker;
     public LayerMask groudLayer;
     public float jumpForce = 300.0f;
+    public float maxSprint = 5.0f;
+    float sprintTimer;
 
     void Start()
     {
-
+        sprintTimer = maxSprint;
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -35,6 +39,22 @@ public class CharacterController : MonoBehaviour
         {
             rb.AddForce(transform.up * jumpForce);
         }
+
+        if (Input.GetKey(KeyCode.LeftShift) && sprintTimer > 0.0f)
+        {
+            maxSpeed = sprintSpeed;
+            sprintTimer = sprintTimer - Time.deltaTime;
+        }
+        else
+        {
+            maxSpeed = normalSpeed;
+            if(Input.GetKey(KeyCode.LeftShift) == false && sprintTimer < maxSprint)
+            {
+                sprintTimer = sprintTimer + Time.deltaTime;
+            }
+        }
+
+        sprintTimer = Mathf.Clamp(sprintTimer, 0.0f, maxSprint);
 
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
