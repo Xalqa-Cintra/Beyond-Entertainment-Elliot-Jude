@@ -71,14 +71,10 @@ public class CharacterController : MonoBehaviour
 
         camRotation = Mathf.Clamp(camRotation, -30f, 30f);
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
-            cameraManager.GetComponent<PhotoCapture>().canTakePhoto = true;
+            cameraManager.GetComponent<PhotoCapture>().canTakePhoto = !cameraManager.GetComponent<PhotoCapture>().canTakePhoto;
 
-        }
-        else
-        {
-            cameraManager.GetComponent<PhotoCapture>().canTakePhoto = false;
         }
     }
 }

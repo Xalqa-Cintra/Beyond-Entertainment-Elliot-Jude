@@ -17,19 +17,30 @@ public class PhotoCapture : MonoBehaviour
     [Header("Photo Fader Effect")]
     [SerializeField] private Animator fadingAnimation;
 
+    public GameObject camHud;
+    public GameObject[] photoicons;
     private Texture2D screenCapture;
     public bool viewingPhoto;
     public bool canTakePhoto, photoRemoved, inCamera;
+
 
     public int photoLimit;
     private void Start()
     {
         screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        camHud.SetActive(false);
     }
 
     private void Update()
     {
-
+        if(canTakePhoto)
+        {
+            camHud.SetActive(true);
+        }
+        else
+        {
+            camHud.SetActive(false);
+        }
 
 
         if (Input.GetMouseButtonDown(0) && canTakePhoto && photoLimit > 0)
@@ -54,7 +65,7 @@ public class PhotoCapture : MonoBehaviour
     {
         // Camera UI set False
         viewingPhoto = true;
-
+        camHud.SetActive(false);
         yield return new WaitForEndOfFrame();
 
         Rect regionToRead = new Rect(0, 0, Screen.width, Screen.height);

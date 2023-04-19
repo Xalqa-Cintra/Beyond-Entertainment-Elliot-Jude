@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 4452802056128346952}
   - component: {fileID: 4452802056128346955}
   - component: {fileID: 4452802056128346948}
-  - component: {fileID: 5232328586341690591}
   m_Layer: 0
   m_Name: Player w_ cam
   m_TagString: Player
@@ -198,6 +197,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 4452802055595230282}
   cameraManager: {fileID: 0}
+  groundChecker: {fileID: 0}
+  groudLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpForce: 300
+  maxSprint: 5
 --- !u!54 &4452802056128346948
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,20 +219,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &5232328586341690591
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4452802056128346954}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5232328587618259484
 GameObject:
   m_ObjectHideFlags: 0

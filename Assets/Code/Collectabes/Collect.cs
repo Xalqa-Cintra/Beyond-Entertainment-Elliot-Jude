@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Collect : MonoBehaviour
 {
+
+    public GameObject cameraManager;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter(Collider other)
     {
-        
+        if(other.tag =="Camera Pickup")
+        {
+            cameraManager.GetComponent<PhotoCapture>().photoLimit += 2;
+        }
+        Destroy(other.gameObject);
     }
 }
