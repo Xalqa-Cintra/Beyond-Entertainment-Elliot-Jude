@@ -67,9 +67,9 @@ public class TimeController : MonoBehaviour
     {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
 
-        if (timeText != null)
+        if (TimeText != null)
         {
-            timeText.text = currentTime.ToString("HH:mm");
+            TimeText.text = currentTime.ToString("HH:mm");
         }
     }
 
