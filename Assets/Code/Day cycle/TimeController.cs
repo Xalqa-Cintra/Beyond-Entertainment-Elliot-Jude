@@ -11,7 +11,6 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     private float startHour;
 
-
     [SerializeField]
     private Light sunLight;
 
@@ -67,10 +66,7 @@ public class TimeController : MonoBehaviour
     {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
 
-        if (TimeText != null)
-        {
-            TimeText.text = currentTime.ToString("HH:mm");
-        }
+        
     }
 
     private void RotateSun()
