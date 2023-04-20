@@ -73,7 +73,7 @@ public class SoldierCode : MonoBehaviour
             totalMoral += allsoldiers[3].GetComponent<SoldierState>().moralValue;
             soldier4Seen = true;
         }
-        if (allsoldiers[4].GetComponent<SoldierState>().canSee && !soldier4Seen)
+        if (allsoldiers[4].GetComponent<SoldierState>().canSee && !soldier5Seen)
         {
             totalMoral += allsoldiers[4].GetComponent<SoldierState>().moralValue;
             soldier5Seen = true;
