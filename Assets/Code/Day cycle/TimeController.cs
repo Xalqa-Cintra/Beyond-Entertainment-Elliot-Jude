@@ -66,7 +66,7 @@ public class TimeController : MonoBehaviour
     {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
 
-
+        
     }
 
     private void RotateSun()
