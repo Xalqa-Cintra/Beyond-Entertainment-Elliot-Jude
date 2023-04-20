@@ -6,7 +6,7 @@ public class CharacterController : MonoBehaviour
 {
     float maxSpeed;
     float normalSpeed = 10.0f;
-    float sprintSpeed = 20.0f;
+    float sprintSpeed = 14.0f;
     float rotation = 0.0f;
     float camRotation = 0.0f;
     float xRotation;
@@ -20,7 +20,7 @@ public class CharacterController : MonoBehaviour
     public GameObject groundChecker;
     public LayerMask groudLayer;
     public float jumpForce = 300.0f;
-    public float maxSprint = 5.0f;
+    public float maxSprint = 5.0f, gravity;
     float sprintTimer;
     public int added;
 
@@ -40,6 +40,8 @@ public class CharacterController : MonoBehaviour
         {
             rb.AddForce(transform.up * jumpForce);
         }
+
+        rb.AddForce(transform.up * (gravity * -1), ForceMode.Force);
 
         if (Input.GetKey(KeyCode.LeftShift) && sprintTimer > 0.0f)
         {

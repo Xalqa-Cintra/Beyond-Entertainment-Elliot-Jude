@@ -124,7 +124,13 @@ public class PhotoCapture : MonoBehaviour
 
     public void SetMaxLimit()
     {
-        switch(photoLimit)
+        photoicons[0].SetActive(false);
+        photoicons[1].SetActive(false);
+        photoicons[2].SetActive(false);
+        photoicons[3].SetActive(false);
+        photoicons[4].SetActive(false);
+        photoicons[5].SetActive(false);
+        switch (photoLimit)
         {
             case 1:
                 photoicons[0].SetActive(true); break;
