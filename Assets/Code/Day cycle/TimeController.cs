@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+
 public class TimeController : MonoBehaviour
 {
     [SerializeField]
@@ -11,8 +11,6 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     private float startHour;
 
-    [SerializeField]
-    private TextMeshProUGUI timeText;
 
     [SerializeField]
     private Light sunLight;
