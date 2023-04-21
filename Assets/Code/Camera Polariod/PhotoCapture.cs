@@ -21,18 +21,18 @@ public class PhotoCapture : MonoBehaviour
 
     public GameObject camHud, darkRoomManager;
     public GameObject[] photoIcons;
-    private Texture2D screenCapture;
+    [SerializeField] private Texture2D[] screenCapture;
     public bool viewingPhoto;
     public bool canTakePhoto, photoRemoved, inCamera;
-    
-    
-    
-    public int photoLimit, photoTaken;
+
+
+
+    public int photoLimit, photoTaken, photoTotal;
     private void Start()
     {
         SetMaxLimit();
        
-        screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        
         camHud.SetActive(false);
     }
 
@@ -74,6 +74,7 @@ public class PhotoCapture : MonoBehaviour
 
     IEnumerator CapturePhoto()
     {
+        screenCapture[photoTotal] = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         // Camera UI set False
         viewingPhoto = true;
         camHud.SetActive(false);
@@ -81,15 +82,15 @@ public class PhotoCapture : MonoBehaviour
 
         Rect regionToRead = new Rect(0, 0, Screen.width, Screen.height);
 
-        screenCapture.ReadPixels(regionToRead, 0, 0, false);
-        screenCapture.Apply();
+        screenCapture[photoTotal].ReadPixels(regionToRead, 0, 0, false);
+        screenCapture[photoTotal].Apply();
         ShowPhoto();
     }
 
     void ShowPhoto()
     {
-        photoSprite[photoTaken] = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        photoDislayArea.sprite = photoSprite[photoTaken];
+        photoSprite[photoTotal] = Sprite.Create(screenCapture[photoTotal], new Rect(0.0f, 0.0f, screenCapture[photoTotal].width, screenCapture[photoTotal].height), new Vector2(0.5f, 0.5f), 100.0f);
+        photoDislayArea.sprite = photoSprite[photoTotal];
 
 
         photoFrame.SetActive(true);
@@ -104,15 +105,13 @@ public class PhotoCapture : MonoBehaviour
         cameraFlash.SetActive(false);
     }
 
-
-
-
     void RemovePhoto()
     {
         darkRoomManager.GetComponent<DarkRoomPhotos>().PhotoTaken();
         viewingPhoto = false;
         photoLimit --;
         photoTaken++;
+        photoTotal++;
         photoFrame.SetActive(false);
     }
 
