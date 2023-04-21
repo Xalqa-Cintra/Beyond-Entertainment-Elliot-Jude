@@ -10,7 +10,7 @@ public class PhotoCapture : MonoBehaviour
     [Header("Photo Taker")]
     [SerializeField] private Image photoDislayArea;
     [SerializeField] private GameObject photoFrame;
-    public Sprite photoSprite;
+    public Sprite[] photoSprite;
 
     [Header("Flash Effect")]
     [SerializeField] private GameObject cameraFlash;
@@ -88,8 +88,8 @@ public class PhotoCapture : MonoBehaviour
 
     void ShowPhoto()
     {
-        photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        photoDislayArea.sprite = photoSprite;
+        photoSprite[photoTaken] = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        photoDislayArea.sprite = photoSprite[photoTaken];
 
 
         photoFrame.SetActive(true);
