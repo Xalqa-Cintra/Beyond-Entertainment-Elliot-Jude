@@ -28,6 +28,6 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Quiting Game...");
+        Debug.Log("Quitting Game...");
     }
 }

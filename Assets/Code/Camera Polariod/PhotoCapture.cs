@@ -10,6 +10,7 @@ public class PhotoCapture : MonoBehaviour
     [Header("Photo Taker")]
     [SerializeField] private Image photoDislayArea;
     [SerializeField] private GameObject photoFrame;
+    public Sprite photoSprite;
 
     [Header("Flash Effect")]
     [SerializeField] private GameObject cameraFlash;
@@ -18,8 +19,8 @@ public class PhotoCapture : MonoBehaviour
     [Header("Photo Fader Effect")]
     [SerializeField] private Animator fadingAnimation;
 
-    public GameObject camHud;
-    public GameObject[] photoicons;
+    public GameObject camHud, darkRoomManager;
+    public GameObject[] photoIcons;
     private Texture2D screenCapture;
     public bool viewingPhoto;
     public bool canTakePhoto, photoRemoved, inCamera;
@@ -87,7 +88,7 @@ public class PhotoCapture : MonoBehaviour
 
     void ShowPhoto()
     {
-        Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
         photoDislayArea.sprite = photoSprite;
 
 
@@ -108,57 +109,30 @@ public class PhotoCapture : MonoBehaviour
 
     void RemovePhoto()
     {
+        darkRoomManager.GetComponent<DarkRoomPhotos>().PhotoTaken();
         viewingPhoto = false;
         photoLimit --;
         photoTaken++;
         photoFrame.SetActive(false);
-        
-
-        // CameraUI true
     }
 
     void CheckLimit()
     {
-        photoicons[photoTaken].SetActive(false);
+        photoIcons[photoTaken].SetActive(false);
     }
 
     public void SetMaxLimit()
     {
-        photoicons[0].SetActive(false);
-        photoicons[1].SetActive(false);
-        photoicons[2].SetActive(false);
-        photoicons[3].SetActive(false);
-        photoicons[4].SetActive(false);
-        photoicons[5].SetActive(false);
-        switch (photoLimit)
+        photoIcons[0].SetActive(false);
+        photoIcons[1].SetActive(false);
+        photoIcons[2].SetActive(false);
+        photoIcons[3].SetActive(false);
+        photoIcons[4].SetActive(false);
+        photoIcons[5].SetActive(false);
+        
+        for (int i = 0; i < photoLimit; i++)
         {
-            case 1:
-                photoicons[0].SetActive(true); break;
-            case 2:
-                photoicons[0].SetActive(true);
-                photoicons[1].SetActive(true); break;
-            case 3:
-                photoicons[0].SetActive(true);
-                photoicons[1].SetActive(true);
-                photoicons[2].SetActive(true); break;
-            case 4:
-                photoicons[0].SetActive(true);
-                photoicons[1].SetActive(true);
-                photoicons[2].SetActive(true);
-                photoicons[3].SetActive(true); break;
-            case 5:
-                photoicons[0].SetActive(true);
-                photoicons[1].SetActive(true);
-                photoicons[2].SetActive(true);
-                photoicons[3].SetActive(true);
-                photoicons[4].SetActive(true); break;
-            case 6:
-                photoicons[0].SetActive(true);
-                photoicons[1].SetActive(true);
-                photoicons[2].SetActive(true);
-                photoicons[3].SetActive(true);
-                photoicons[4].SetActive(true);
-                photoicons[5].SetActive(true); break;
+            photoIcons[i].SetActive(true);
         }
     }
 
@@ -170,4 +144,14 @@ public class PhotoCapture : MonoBehaviour
     //place in darkroom
     //let player be able to pick it
     //add somewhere for the photos to be saved when taken 
+
+//PUT PHOTO ONTO REDROOM
+    // cube in redroom
+    // setactive(false)
+    // set up a foreach meshfilter, add to array
+    //when photo taken, activate cube(phototaken)
+    //pull and apply sprite in photo to the cube
+    //setbool (photoXdone)
+    //when bool active, dont repeat  
+
 }
