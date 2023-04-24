@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7597813805226687124, guid: 43742678d1f58c6439cf4c8bffb9c582, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -287.6317
+      value: -628
       objectReference: {fileID: 0}
     - target: {fileID: 7597813805226687124, guid: 43742678d1f58c6439cf4c8bffb9c582, type: 3}
       propertyPath: m_LocalRotation.w
@@ -377,8 +377,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1647022284}
-  - component: {fileID: 1647022283}
   - component: {fileID: 1647022282}
+  - component: {fileID: 1647022283}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -457,7 +457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647022281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -536.71387, y: -49.431557, z: 294.34964}
+  m_LocalPosition: {x: -536.71387, y: -72, z: 294.34964}
   m_LocalScale: {x: 11.39, y: 11.39, z: 11.39}
   m_Children: []
   m_Father: {fileID: 0}

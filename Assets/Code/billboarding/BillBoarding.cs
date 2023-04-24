@@ -4,17 +4,42 @@ using UnityEngine;
 
 public class BillBoarding : MonoBehaviour
 {
-    
-    private Transform transform:
-    private Position position;
-    GameObject player;
+    [SerializeField] private BillboardType billboardType;
 
-    private void Start() 
+    [Header("Lock Rotation")]
+    [SerializeField] private bool lockX;
+    [SerializeField] private bool lockY;
+    [SerializeField] private bool lockZ;
+
+    private Vector3 originalRotation;
+
+    public enum BillboardType { LookAtCamera, CameraForward};
+
+    private void Awake()
     {
-        player = GameObject.Find("player");
+        originalRotation = transform.rotation.eulerAngles;
     }
-    private void Update()
+
+    void LateUpdate(float originalRotation)
     {
-        this.transform.Look(new Vector3(player.position.x, this.Position.y, player.Position.z));
+     
+        switch (billboardType)
+        {
+            case BillboardType.LookAtCamera:
+                transform.LookAt(Camera.main.transform.position, Vector3.up);
+                break;
+            case BillboardType.CameraForward:
+                transform.forward = Camera.main.transform.forward;
+                break;
+            default:
+                break;
+        }
+
+        Vector3 rotation = transform.rotation.eulerAngles;
+        if (lockX) { rotation.x = originalRotation; }
+        if (lockY) { rotation.y = originalRotation; }
+        if (lockZ) { rotation.z = originalRotation; }
+        transform.rotation = Quaternion.Euler(rotation);
     }
+
 }
