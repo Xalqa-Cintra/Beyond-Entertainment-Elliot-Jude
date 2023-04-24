@@ -1581,6 +1581,93 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296932358}
   m_Mesh: {fileID: -4990829700342139071, guid: 9882c9156d74eea47a9d3ee58067e38c, type: 3}
+--- !u!1 &307812108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7597813805767378329, guid: 43742678d1f58c6439cf4c8bffb9c582, type: 3}
+  m_PrefabInstance: {fileID: 1345343332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &307812109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7597813805767378330, guid: 43742678d1f58c6439cf4c8bffb9c582, type: 3}
+  m_PrefabInstance: {fileID: 1345343332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &307812110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307812108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 307812109}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!114 &307812111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307812108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: c89bc636cd9a3464db6575eb49e1ab24, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &332810259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2656,9 +2743,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1326172851}
     - target: {fileID: 9215550505391740584, guid: ea6344572fa294e4a8d534e01d8fcc3d, type: 3}
+      propertyPath: photoLimit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215550505391740584, guid: ea6344572fa294e4a8d534e01d8fcc3d, type: 3}
       propertyPath: cameraFlash
       value: 
       objectReference: {fileID: 1559734055}
+    - target: {fileID: 9215550505391740584, guid: ea6344572fa294e4a8d534e01d8fcc3d, type: 3}
+      propertyPath: canTakePhoto
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9215550505391740584, guid: ea6344572fa294e4a8d534e01d8fcc3d, type: 3}
       propertyPath: darkRoomManager
       value: 
@@ -2703,6 +2798,10 @@ PrefabInstance:
       propertyPath: photoIcons.Array.data[5]
       value: 
       objectReference: {fileID: 1954318440}
+    - target: {fileID: 9215550505391740584, guid: ea6344572fa294e4a8d534e01d8fcc3d, type: 3}
+      propertyPath: screenCapture.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9215550505391740585, guid: ea6344572fa294e4a8d534e01d8fcc3d, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -4360,7 +4459,7 @@ PrefabInstance:
     - target: {fileID: 7597813805226687128, guid: 43742678d1f58c6439cf4c8bffb9c582, type: 3}
       propertyPath: cameraManager
       value: 
-      objectReference: {fileID: 9215550505391740587, guid: ea6344572fa294e4a8d534e01d8fcc3d, type: 3}
+      objectReference: {fileID: 459429251}
     - target: {fileID: 7597813805226687129, guid: 43742678d1f58c6439cf4c8bffb9c582, type: 3}
       propertyPath: m_Name
       value: Player w_ cam 1
