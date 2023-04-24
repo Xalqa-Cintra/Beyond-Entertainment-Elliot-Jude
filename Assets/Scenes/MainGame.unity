@@ -8602,7 +8602,7 @@ PrefabInstance:
       objectReference: {fileID: 459429251}
     - target: {fileID: 7597813805226687129, guid: 43742678d1f58c6439cf4c8bffb9c582, type: 3}
       propertyPath: m_Name
-      value: Player w_ cam 1
+      value: Playerwcam1
       objectReference: {fileID: 0}
     - target: {fileID: 7597813805226687131, guid: 43742678d1f58c6439cf4c8bffb9c582, type: 3}
       propertyPath: m_Radius
@@ -8991,7 +8991,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1383574894}
   - component: {fileID: 1383574893}
-  - component: {fileID: 1383574892}
+  - component: {fileID: 1383574895}
   m_Layer: 0
   m_Name: charcter test
   m_TagString: Untagged
@@ -8999,22 +8999,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1383574892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383574891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1522b4217eba1142ba5644718d401ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  billboardType: 1
-  lockX: 1
-  lockY: 0
-  lockZ: 0
 --- !u!212 &1383574893
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9074,12 +9058,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383574891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.55289, y: 4.84, z: -14.45009}
+  m_LocalPosition: {x: 65.52, y: 4.84, z: -14.45009}
   m_LocalScale: {x: 0.22957, y: 0.22957, z: 0.22957}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1383574895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383574891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb42ad51f7bae0438beee586d992d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockX: 1
+  lockY: 0
+  lockZ: 0
+  Playerwcam1: {fileID: 1169924499}
 --- !u!1 &1399048873
 GameObject:
   m_ObjectHideFlags: 0

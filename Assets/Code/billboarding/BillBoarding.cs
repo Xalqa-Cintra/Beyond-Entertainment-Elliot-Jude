@@ -20,7 +20,7 @@ public class BillBoarding : MonoBehaviour
         originalRotation = transform.rotation.eulerAngles;
     }
 
-    void LateUpdate(float originalRotation)
+    void updata (float originalRotation)
     {
      
         switch (billboardType)
