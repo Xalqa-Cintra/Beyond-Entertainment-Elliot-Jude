@@ -24,6 +24,10 @@ public class CharacterController : MonoBehaviour
     float sprintTimer;
     public int added;
 
+    public Transform darkroomTP;
+    public Transform bunkerTP;
+
+
     void Start()
     {
         sprintTimer = maxSprint;
@@ -89,7 +93,15 @@ public class CharacterController : MonoBehaviour
             cameraManager.GetComponent<PhotoCapture>().photoLimit += added;
             cameraManager.GetComponent<PhotoCapture>().SetMaxLimit();
             cameraManager.GetComponent<PhotoCapture>().photoTaken = 0;
+            Destroy(other.gameObject);
         }
-        Destroy(other.gameObject);
+        if(other.tag == "DarkroomTP")
+        {
+            transform.position = darkroomTP.position;
+        }
+        if(other.tag == "BunkerTP")
+        {
+            transform.position = bunkerTP.position;
+        }
     }
 }

@@ -31,7 +31,7 @@ public class SoldierCode : MonoBehaviour
             GetInfo();
             if (!receivedInfo)
             {
-                Debug.Log("Total Moral is:" + totalMoral);
+               
                 receivedInfo = true;
             }
         }
