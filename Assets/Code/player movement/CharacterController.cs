@@ -26,6 +26,7 @@ public class CharacterController : MonoBehaviour
 
     public Transform darkroomTP;
     public Transform bunkerTP;
+    public Transform mapTP;
 
 
     void Start()
@@ -84,7 +85,7 @@ public class CharacterController : MonoBehaviour
 
         }
     }
-    
+
 
     public void OnTriggerEnter(Collider other)
     {
@@ -95,13 +96,19 @@ public class CharacterController : MonoBehaviour
             cameraManager.GetComponent<PhotoCapture>().photoTaken = 0;
             Destroy(other.gameObject);
         }
-        if(other.tag == "DarkroomTP")
+        if (other.tag == "DarkroomTP")
         {
             transform.position = darkroomTP.position;
         }
-        if(other.tag == "BunkerTP")
+        if (other.tag == "BunkerTP")
         {
             transform.position = bunkerTP.position;
+        }
+        if (other.tag == "MapTP")
+        {
+            cameraManager.GetComponent<PhotoCapture>().photoLimit = 3;
+            cameraManager.GetComponent<PhotoCapture>().SetMaxLimit();
+            transform.position = mapTP.position;
         }
     }
 }

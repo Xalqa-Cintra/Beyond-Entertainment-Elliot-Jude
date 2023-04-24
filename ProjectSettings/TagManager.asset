@@ -7,6 +7,8 @@ TagManager:
   - Camera Pickup
   - DarkroomTP
   - BunkerTP
+  - bunkerLimit
+  - MapTP
   layers:
   - Default
   - TransparentFX

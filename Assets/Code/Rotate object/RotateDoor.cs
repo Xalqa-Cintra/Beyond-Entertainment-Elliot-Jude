@@ -7,24 +7,30 @@ public class RotateDoor : MonoBehaviour
     public GameObject darkroomManager;
     public Transform rotatePoint;
 
-    public float rotateTime;
     public float rotateAmount;
+    public bool stop;
 
     private void Update()
     {
-        if (rotateTime > 0)
-        {
-            if (darkroomManager.GetComponent<DarkRoomPhotos>().currentPhoto > 2)
+
+ 
+            if (darkroomManager.GetComponent<DarkRoomPhotos>().currentPhoto > 2 && stop == false)
             {
                 DoorRotate();
             }
-        }
     }
 
     private void DoorRotate()
     {
         transform.RotateAround(rotatePoint.position, Vector3.up, rotateAmount);
-        rotateTime =- Time.deltaTime;
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "bunkerLimit")
+        {
+            stop = true;
+        }
     }
 
 }
