@@ -10,6 +10,9 @@ TagManager:
   - bunkerLimit
   - MapTP
   - inView
+  - BunkerMapTP
+  - WarTP
+  - WarMapTP
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
     float sensY;
     public GameObject cam;
     Rigidbody rb;
-    public GameObject cameraManager;
+    public GameObject cameraManager, gameManager;
     float rotationSpeed = 2.0f;
     float camRoatationSpeed = -1.5f;
     bool isOnGround;
@@ -24,9 +24,7 @@ public class CharacterController : MonoBehaviour
     float sprintTimer;
     public int added;
 
-    public Transform darkroomTP;
-    public Transform bunkerTP;
-    public Transform mapTP;
+    public Transform darkroomTP, bunkerTP, mapTP, bunkerMapTP, warTP, warMapTP;
 
 
     void Start()
@@ -109,6 +107,18 @@ public class CharacterController : MonoBehaviour
             cameraManager.GetComponent<PhotoCapture>().photoLimit = 3;
             cameraManager.GetComponent<PhotoCapture>().SetMaxLimit();
             transform.position = mapTP.position;
+        }
+        if (other.tag == "BunkerMapTP")
+        {
+            transform.position = bunkerMapTP.position;
+        }
+        if (other.tag == "WarTP")
+        {
+            transform.position = warTP.position;
+        }
+        if (other.tag == "WarMapTP")
+        {
+            transform.position = warMapTP.position;
         }
     }
 }

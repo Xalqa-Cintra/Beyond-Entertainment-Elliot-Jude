@@ -6,8 +6,10 @@ public class DarkRoomPhotos : MonoBehaviour
 {
     public GameObject cameraManager;
     public GameObject[] photoSelectables;
+    public GameObject selectedPhoto;
     public SpriteRenderer[] photoMeshSprite;
-    public int currentPhoto;
+    public int currentPhoto, finalMoral;
+    public Sprite finalSprite;
 
     private void Start()
     {
@@ -51,6 +53,31 @@ public class DarkRoomPhotos : MonoBehaviour
 
         currentPhoto++;
 
+    }
+
+    public void FinalCheck()
+    {
+        if (photoSelectables[0].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto; }
+        if (photoSelectables[1].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto; }
+        if (photoSelectables[2].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto; }
+        if (photoSelectables[3].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto; }
+        if (photoSelectables[4].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto; }
+        if (photoSelectables[5].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto; }
+
+        finalSprite = selectedPhoto.GetComponent<Sprite>();
+
+        if (selectedPhoto.GetComponent<PhotosInfo>().photoValue < -3)
+        {
+            finalMoral = 1;
+        }
+        if (selectedPhoto.GetComponent<PhotosInfo>().photoValue > -3 && selectedPhoto.GetComponent<PhotosInfo>().photoValue < 5)
+        {
+            finalMoral = 2;
+        }
+        if (selectedPhoto.GetComponent<PhotosInfo>().photoValue > 5)
+        {
+            finalMoral = 3;
+        }
     }
 
 }

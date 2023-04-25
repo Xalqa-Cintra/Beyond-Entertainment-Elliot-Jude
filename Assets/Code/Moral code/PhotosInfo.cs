@@ -7,6 +7,7 @@ public class PhotosInfo : MonoBehaviour
     public GameObject soldierManager;
     public int photoValue;
     public bool[] soldierSeen;
+    public bool selected;
 
     public void FindInfo()
     {
@@ -18,6 +19,8 @@ public class PhotosInfo : MonoBehaviour
         soldierSeen[3] = soldierManager.GetComponent<SoldierCode>().soldier4Seen;
         soldierSeen[4] = soldierManager.GetComponent<SoldierCode>().soldier5Seen;
     }
+
+
     //retrieve info from soldier manager
     //put into this code for each photo fromdarkroommanager
 }
