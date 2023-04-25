@@ -68,7 +68,9 @@ public class PhotoCapture : MonoBehaviour
                 }
 
             }
-        
+        if (Input.GetMouseButtonDown(1) && viewingPhoto) { CheckLimit(); RemovePhoto(); photoRemoved = true; }
+
+
 
     }
 

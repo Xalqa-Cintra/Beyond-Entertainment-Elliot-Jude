@@ -12,11 +12,13 @@ public class SoldierState : MonoBehaviour
     public int moralValue;
 
     public bool canSee;
+    public bool inView;
 
 
     public LayerMask npcLayer;
     public GameObject player;
     public GameObject manager;
+    public GameObject maxView;
 
     //set value to bools depending on rng maybe, most likely jus predetermined for now
     private void Start()
@@ -64,5 +66,14 @@ public class SoldierState : MonoBehaviour
         {
             canSee = true;
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "inView") { inView = true; }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "inView") { inView = false; }
     }
 }
