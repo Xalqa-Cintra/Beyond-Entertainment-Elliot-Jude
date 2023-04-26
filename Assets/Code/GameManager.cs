@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject darkRoomManger;
 
     [Header("Mission 1")]
-    bool[] soldierCheck;
+    bool missionSucceed1;
 
 
     private void Awake()
@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     }
     public void CheckMissionComplete1()
     {
+        if(darkRoomManger.GetComponent<DarkRoomPhotos>().finalSoldiers==5)
+        {
+            missionSucceed1= true;
+        }
         //check each soldier is in photo, 
     }
 

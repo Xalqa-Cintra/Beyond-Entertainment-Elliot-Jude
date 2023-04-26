@@ -137,22 +137,6 @@ public class PhotoCapture : MonoBehaviour
         }
     }
 
-    //Gamobject[] store all shots
-    //when take shot, disable 1 
 
-    //create gameobject of picture
-    //put moral value into it
-    //place in darkroom
-    //let player be able to pick it
-    //add somewhere for the photos to be saved when taken 
-
-//PUT PHOTO ONTO REDROOM
-    // cube in redroom
-    // setactive(false)
-    // set up a foreach meshfilter, add to array
-    //when photo taken, activate cube(phototaken)
-    //pull and apply sprite in photo to the cube
-    //setbool (photoXdone)
-    //when bool active, dont repeat  
 
 }

@@ -20,6 +20,8 @@ public class PhotosInfo : MonoBehaviour, IInteractable
         soldierSeen[2] = soldierManager.GetComponent<SoldierCode>().soldier3Seen;
         soldierSeen[3] = soldierManager.GetComponent<SoldierCode>().soldier4Seen;
         soldierSeen[4] = soldierManager.GetComponent<SoldierCode>().soldier5Seen;
+
+
     }
     public void Interact()
     {

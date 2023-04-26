@@ -11,7 +11,7 @@ public class DarkRoomPhotos : MonoBehaviour
     public int currentPhoto, finalMoral;
     public Sprite[] finalSprite;
     public int selectedAmt;
-    public bool[] finalSoldiers;
+    public int finalSoldiers;
 
     private void Start()
     {
@@ -59,12 +59,6 @@ public class DarkRoomPhotos : MonoBehaviour
 
     public void FinalCheck()
     {
-        if (photoSelectables[0].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto[0]; }
-        if (photoSelectables[1].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto[0]; }
-        if (photoSelectables[2].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto[0]; }
-        if (photoSelectables[3].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto[0]; }
-        if (photoSelectables[4].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto[0]; }
-        if (photoSelectables[5].GetComponent<PhotosInfo>().selected == true) { photoSelectables[0] = selectedPhoto[0]; }
 
         finalSprite[0] = selectedPhoto[0].GetComponent<Sprite>();
 
@@ -79,6 +73,25 @@ public class DarkRoomPhotos : MonoBehaviour
         if (selectedPhoto[0].GetComponent<PhotosInfo>().photoValue > 5)
         {
             finalMoral = 3;
+        }
+
+        finalSprite[1] = selectedPhoto[0].GetComponent<Sprite>();
+
+        if (selectedPhoto[1].GetComponent<PhotosInfo>().photoValue < -3)
+        {
+            finalMoral = 1;
+        }
+        if (selectedPhoto[1].GetComponent<PhotosInfo>().photoValue > -3 && selectedPhoto[1].GetComponent<PhotosInfo>().photoValue < 5)
+        {
+            finalMoral = 2;
+        }
+        if (selectedPhoto[1].GetComponent<PhotosInfo>().photoValue > 5)
+        {
+            finalMoral = 3;
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            if (selectedPhoto[0].GetComponent<PhotosInfo>().soldierSeen[i] == true) { finalSoldiers++; }
         }
     }
 
