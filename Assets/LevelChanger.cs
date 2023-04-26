@@ -1,21 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelChanger : MonoBehaviour
+public class LevelChanger : MonoBehaviour, IInteractable
 {
+    public void Interact()
+    {
+        FadeToLevel(5);
+    }
     public Animator animator;
 
     private int LevelToLoad;
 
-    // Update is called once per frame
-    void Update()
-    {
-       if(Input.GetMouseButtonDown(0))
-        {
-            FadeToLevel(5);
-        }
 
-    }
 
     public void FadeToLevel (int levelIndex)
     {

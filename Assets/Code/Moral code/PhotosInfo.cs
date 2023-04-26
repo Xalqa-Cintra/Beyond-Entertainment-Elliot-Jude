@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhotosInfo : MonoBehaviour
+public class PhotosInfo : MonoBehaviour, IInteractable
 {
     public GameObject soldierManager;
+    public GameObject darkRoomManager;
     public int photoValue;
     public bool[] soldierSeen;
     public bool selected;
+    public float moveDistance;
 
     public void FindInfo()
     {
@@ -19,7 +21,21 @@ public class PhotosInfo : MonoBehaviour
         soldierSeen[3] = soldierManager.GetComponent<SoldierCode>().soldier4Seen;
         soldierSeen[4] = soldierManager.GetComponent<SoldierCode>().soldier5Seen;
     }
-
+    public void Interact()
+    {
+        selected = !selected;
+        if(selected == true)
+        {
+            gameObject.transform.position += Vector3.forward * moveDistance;
+            darkRoomManager.GetComponent<DarkRoomPhotos>().selectedPhoto[darkRoomManager.GetComponent<DarkRoomPhotos>().selectedAmt] = gameObject;
+            darkRoomManager.GetComponent<DarkRoomPhotos>().selectedAmt++;
+        }
+        else
+        {
+            gameObject.transform.position += Vector3.forward * (-moveDistance);
+            darkRoomManager.GetComponent<DarkRoomPhotos>().selectedAmt--;
+        }
+    }    
 
     //retrieve info from soldier manager
     //put into this code for each photo fromdarkroommanager
