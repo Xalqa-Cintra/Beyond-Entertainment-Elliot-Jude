@@ -77,7 +77,8 @@ public class DarkRoomPhotos : MonoBehaviour
             finalMoral = 3;
         }
 
-        finalSprite[1] = selectedPhoto[0].GetComponent<Sprite>();
+        finalSprite[0] = selectedPhoto[1].GetComponent<SpriteRenderer>().sprite;
+        finalSprite[1] = selectedPhoto[1].GetComponent<SpriteRenderer>().sprite;
 
         if (selectedPhoto[1].GetComponent<PhotosInfo>().photoValue < -3)
         {
