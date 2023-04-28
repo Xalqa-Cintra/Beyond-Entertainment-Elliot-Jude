@@ -1,6 +1,7 @@
-using System.Collections;
+  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class CharacterController : MonoBehaviour
     public float maxSprint = 5.0f, gravity;
     float sprintTimer;
     public int added;
+    public float distToGround = 1f;
+    public Text Grounded;
 
     public Transform darkroomTP, bunkerTP, mapTP, bunkerMapTP, warTP, warMapTP, AirStripTP, airStripMapTP;
 
@@ -128,5 +131,11 @@ public class CharacterController : MonoBehaviour
         {
             transform.position = AirStripTP.position;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f))
+            Grounded.text = "Not Grounded";
     }
 }

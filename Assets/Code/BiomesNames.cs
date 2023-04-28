@@ -17,4 +17,8 @@ public class BiomesNames : MonoBehaviour
     // if player is in box 3 then name "Bunker" or gameobject
     // else the player is name "wilderness" 
     // to set the areas as triggers to see if the player is on it
+
+    public Text Grounded;
+
+    if 
 }
