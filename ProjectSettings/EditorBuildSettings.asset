@@ -15,12 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/CreditsMenu.unity
     guid: c2a1c1c5b4495724cb0773be69c605e2
   - enabled: 1
+    path: Assets/Scenes/Menu/Names/Liam/Liam.unity
+    guid: d3a06d61392898146b5fefdcbe5aa765
+  - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 9e41906b6a50bd14593f5c66c42012c7
   - enabled: 1
     path: Assets/Scenes/Rain.unity
     guid: 489e05e7119040e4daabe92cdb9c9f50
-  - enabled: 1
-    path: Assets/Scenes/billBoarding.unity
-    guid: ac82522f46bfe3e4da6affb0ce28f0d7
   m_configObjects: {}
