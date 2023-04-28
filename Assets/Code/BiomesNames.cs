@@ -20,5 +20,8 @@ public class BiomesNames : MonoBehaviour
 
     public Text Grounded;
 
-    if 
+    public void OnTriggerEnter()
+    {
+
+    }
 }
