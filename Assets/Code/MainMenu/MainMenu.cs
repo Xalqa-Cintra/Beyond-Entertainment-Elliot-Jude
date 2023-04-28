@@ -30,14 +30,37 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quitting Game...");
     }
-    
+
     public void Liam()
     {
         SceneManager.LoadScene("Liam");
     }
 
+    public void Alex()
+    {
+        SceneManager.LoadScene("Alex");
+    }
+    public void Elliot()
+    {
+        SceneManager.LoadScene("Elliot");
+    }
+
+    public void Jude()
+    {
+        SceneManager.LoadScene("Jude");
+    }
+
+    public void Jeremiah()
+    {
+        SceneManager.LoadScene("Jeremiah");
+    }
+
     public void OpenURL()
     {
         Application.OpenURL("https://www.youtube.com/watch?v=BoUyHM_iAbk&list=PLkdcCYb2i32QkF_l_q8grv4WkziJTyZHG&ab_channel=KAYSCOOKING");
+    }
+    public void BackCredits()
+    {
+        SceneManager.LoadScene("CreditsMenu");
     }
 }

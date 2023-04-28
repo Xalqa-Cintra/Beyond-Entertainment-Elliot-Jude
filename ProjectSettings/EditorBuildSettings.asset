@@ -15,7 +15,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/CreditsMenu.unity
     guid: c2a1c1c5b4495724cb0773be69c605e2
   - enabled: 1
-    path: Assets/Scenes/Menu/Names/Liam/Liam.unity
+    path: Assets/Scenes/Menu/Names/Names2/Alex.unity
+    guid: 01d570d374f39a6478bd1e2459b91837
+  - enabled: 1
+    path: Assets/Scenes/Menu/Names/Names2/Elliot.unity
+    guid: 454438c757378cd4c8e393870facc231
+  - enabled: 1
+    path: Assets/Scenes/Menu/Names/Names2/Jeremiah.unity
+    guid: adae23a720c74384c9d987edd616b350
+  - enabled: 1
+    path: Assets/Scenes/Menu/Names/Names2/Jude.unity
+    guid: c63673837f6124d45b82050faede28c4
+  - enabled: 1
+    path: Assets/Scenes/Menu/Names/Names2/Liam.unity
     guid: d3a06d61392898146b5fefdcbe5aa765
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
