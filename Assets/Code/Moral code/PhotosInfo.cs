@@ -25,17 +25,20 @@ public class PhotosInfo : MonoBehaviour, IInteractable
     }
     public void Interact()
     {
-        selected = !selected;
-        if(selected == true)
-        {
-            gameObject.transform.position += Vector3.forward * moveDistance;
-            darkRoomManager.GetComponent<DarkRoomPhotos>().selectedPhoto[darkRoomManager.GetComponent<DarkRoomPhotos>().selectedAmt] = gameObject;
-            darkRoomManager.GetComponent<DarkRoomPhotos>().selectedAmt++;
-        }
-        else
-        {
-            gameObject.transform.position += Vector3.forward * (-moveDistance);
-            darkRoomManager.GetComponent<DarkRoomPhotos>().selectedAmt--;
+        if (darkRoomManager.GetComponent<DarkRoomPhotos>().selectedAmt < 2)
+        { 
+            selected = !selected;
+            if (selected == true)
+            {
+                gameObject.transform.position += Vector3.forward * moveDistance;
+                darkRoomManager.GetComponent<DarkRoomPhotos>().selectedPhoto[darkRoomManager.GetComponent<DarkRoomPhotos>().selectedAmt] = gameObject;
+                darkRoomManager.GetComponent<DarkRoomPhotos>().selectedAmt++;
+            }
+            else
+            {
+                gameObject.transform.position += Vector3.forward * (-moveDistance);
+                darkRoomManager.GetComponent<DarkRoomPhotos>().selectedAmt--;
+            }
         }
     }    
 

@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 9e41906b6a50bd14593f5c66c42012c7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Rain.unity
     guid: 489e05e7119040e4daabe92cdb9c9f50
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/billBoarding.unity
     guid: ac82522f46bfe3e4da6affb0ce28f0d7
   m_configObjects: {}

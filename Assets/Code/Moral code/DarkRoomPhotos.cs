@@ -12,6 +12,7 @@ public class DarkRoomPhotos : MonoBehaviour
     public Sprite[] finalSprite;
     public int selectedAmt;
     public int finalSoldiers;
+    public bool[] countedSoldiers;
 
     private void Start()
     {
@@ -61,6 +62,7 @@ public class DarkRoomPhotos : MonoBehaviour
     {
 
         finalSprite[0] = selectedPhoto[0].GetComponent<Sprite>();
+        finalSprite[1] = selectedPhoto[1].GetComponent<Sprite>();
 
         if (selectedPhoto[0].GetComponent<PhotosInfo>().photoValue < -3)
         {
@@ -91,7 +93,8 @@ public class DarkRoomPhotos : MonoBehaviour
         }
         for (int i = 0; i < 5; i++)
         {
-            if (selectedPhoto[0].GetComponent<PhotosInfo>().soldierSeen[i] == true) { finalSoldiers++; }
+            if (selectedPhoto[0].GetComponent<PhotosInfo>().soldierSeen[i] == true && countedSoldiers[i] == false) {finalSoldiers++; countedSoldiers[i] = true;}
+            if (selectedPhoto[1].GetComponent<PhotosInfo>().soldierSeen[i] == true && countedSoldiers[i] == false) { finalSoldiers++; countedSoldiers[i] = true; }
         }
     }
 

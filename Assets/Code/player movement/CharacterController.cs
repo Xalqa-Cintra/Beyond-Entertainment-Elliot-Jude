@@ -24,7 +24,7 @@ public class CharacterController : MonoBehaviour
     float sprintTimer;
     public int added;
 
-    public Transform darkroomTP, bunkerTP, mapTP, bunkerMapTP, warTP, warMapTP;
+    public Transform darkroomTP, bunkerTP, mapTP, bunkerMapTP, warTP, warMapTP, AirStripTP, airStripMapTP;
 
 
     void Start()
@@ -119,6 +119,14 @@ public class CharacterController : MonoBehaviour
         if (other.tag == "WarMapTP")
         {
             transform.position = warMapTP.position;
+        }
+        if (other.tag == "AirStripMapTP")
+        {
+            transform.position = airStripMapTP.position;
+        }
+        if (other.tag == "AirStripTP")
+        {
+            transform.position = AirStripTP.position;
         }
     }
 }

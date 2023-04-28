@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject darkRoomManger;
 
     [Header("Mission 1")]
-    bool missionSucceed1;
+    public bool missionSucceed1;
 
 
     private void Awake()
@@ -20,9 +20,11 @@ public class GameManager : MonoBehaviour
 
     public void GetInfoFinal()
     {
+        darkRoomManger.GetComponent<DarkRoomPhotos>().FinalCheck();
         moralStatus = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral;
         newspaperSprites[0] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[0];
-        newspaperSprites[0] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[1];
+        newspaperSprites[1] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[1];
+        
 
         CheckMissionComplete1();
     }
