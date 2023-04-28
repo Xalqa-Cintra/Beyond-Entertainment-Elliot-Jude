@@ -956,7 +956,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51411827}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -19909,7 +19909,7 @@ PrefabInstance:
     - target: {fileID: 7597813805226687128, guid: 43742678d1f58c6439cf4c8bffb9c582, type: 3}
       propertyPath: airStripMapTP
       value: 
-      objectReference: {fileID: 51411829}
+      objectReference: {fileID: 1348071823}
     - target: {fileID: 7597813805226687128, guid: 43742678d1f58c6439cf4c8bffb9c582, type: 3}
       propertyPath: cameraManager
       value: 
