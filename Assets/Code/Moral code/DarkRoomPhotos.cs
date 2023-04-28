@@ -9,7 +9,7 @@ public class DarkRoomPhotos : MonoBehaviour
     public GameObject[] selectedPhoto;
     public SpriteRenderer[] photoMeshSprite;
     public int currentPhoto, finalMoral;
-    public Sprite[] finalSprite;
+    public SpriteRenderer[] finalSprite;
     public int selectedAmt;
     public int finalSoldiers;
     public bool[] countedSoldiers;
@@ -61,8 +61,8 @@ public class DarkRoomPhotos : MonoBehaviour
     public void FinalCheck()
     {
 
-        finalSprite[0] = selectedPhoto[0].GetComponent<Sprite>();
-        finalSprite[1] = selectedPhoto[1].GetComponent<Sprite>();
+        finalSprite[0] = selectedPhoto[0].GetComponent<SpriteRenderer>();
+        finalSprite[1] = selectedPhoto[1].GetComponent<SpriteRenderer>();
 
         if (selectedPhoto[0].GetComponent<PhotosInfo>().photoValue < -3)
         {
@@ -77,8 +77,8 @@ public class DarkRoomPhotos : MonoBehaviour
             finalMoral = 3;
         }
 
-        finalSprite[0] = selectedPhoto[1].GetComponent<SpriteRenderer>().sprite;
-        finalSprite[1] = selectedPhoto[1].GetComponent<SpriteRenderer>().sprite;
+        finalSprite[0] = selectedPhoto[1].GetComponent<SpriteRenderer>();
+        finalSprite[1] = selectedPhoto[1].GetComponent<SpriteRenderer>();
 
         if (selectedPhoto[1].GetComponent<PhotosInfo>().photoValue < -3)
         {

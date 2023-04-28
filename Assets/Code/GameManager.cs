@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
     {
         darkRoomManger.GetComponent<DarkRoomPhotos>().FinalCheck();
         moralStatus = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral;
-        newspaperSprites[0] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[0];
-        newspaperSprites[1] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[1];
+        newspaperSprites[0] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[0].sprite;
+        newspaperSprites[1] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[1].sprite;
         
 
         CheckMissionComplete1();
