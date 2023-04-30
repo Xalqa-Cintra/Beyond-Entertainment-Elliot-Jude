@@ -9,7 +9,9 @@ public class PaperCode : MonoBehaviour
     public GameObject gameManager;
     public Sprite[] newspaperImgs;
     public RawImage[] imgLocations;
-
+    public RawImage[] finalLocation;
+    public Text keywords;
+    public string[] keywordList;
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager");
@@ -20,15 +22,15 @@ public class PaperCode : MonoBehaviour
 
         if (gameManager.GetComponent<GameManager>().moralStatus == 1)
         {
-
+           keywords.text = "We want the keywords: " + keywordList[0];
         }
         if(gameManager.GetComponent<GameManager>().moralStatus == 2)
         {
-
+           keywords.text = "We want the keywords: " + keywordList[1];
         }
         if(gameManager.GetComponent<GameManager>().moralStatus == 3)
         {
-
+           keywords.text = "We want the keywords: " + keywordList[2];
         }
     }
     // check moral status in gamemanager x
