@@ -9,7 +9,7 @@ public class SleepCode : MonoBehaviour, IInteractable
     {
         //fadetoblack, wait x seconds
         gameManager.GetComponent<GameManager>().GetInfoFinal();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
 }
