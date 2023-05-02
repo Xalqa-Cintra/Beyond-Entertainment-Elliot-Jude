@@ -11,13 +11,18 @@ public class GameManager : MonoBehaviour
 
     [Header("Mission 1")]
     public bool missionSucceed1;
-
+    [Header("Mission 2")]
+    public bool missionSucceed2;
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
     }
 
+    private void Start()
+    {
+        GameObject.Find("DarkRoomManager");
+    }
     public void GetInfoFinal()
     {
         darkRoomManger.GetComponent<DarkRoomPhotos>().FinalCheck();

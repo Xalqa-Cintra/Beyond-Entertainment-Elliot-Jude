@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PaperCode : MonoBehaviour
 {
@@ -66,6 +67,11 @@ public class PaperCode : MonoBehaviour
     public void BRButton2()
     {
         finalLocation[1].texture = imgLocations[1].texture;
+    }
+
+    public void Next()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     // check moral status in gamemanager x
