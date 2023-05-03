@@ -2229,12 +2229,53 @@ MonoBehaviour:
   finalLocation:
   - {fileID: 1376988889}
   - {fileID: 541070407}
-  keywords: {fileID: 1964732098}
+  requirementsText: {fileID: 1964732098}
   paperHeader: {fileID: 518191822}
   keywordList:
   - deserted, abandoned, hopeless
   - Hard-working, missing, difficult
   - brave, honourable, valiant
+  keywords:
+  - valiant
+  - brave
+  - power
+  - messy
+  - struggling
+  - heroes
+  - abandoned
+  - lost
+  - help
+  headerWords:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   input: 
 --- !u!1 &1807007714
 GameObject:

@@ -12,10 +12,11 @@ public class PaperCode : MonoBehaviour
     public Sprite[] newspaperImgs;
     public RawImage[] imgLocations;
     public RawImage[] finalLocation;
-    public Text keywords, paperHeader;
-    public string[] keywordList;
-    bool toggle, toggle1;
+    public Text requirementsText, paperHeader;
+    public string[] keywordList, keywords, headerWords;
+    bool toggle, toggle1, canGoNextDay;
     public string input;
+    int currentWord, keywordUsed;
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager");
@@ -26,19 +27,30 @@ public class PaperCode : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        if (gameManager.GetComponent<GameManager>().moralStatus == 1)
+        if (gameManager.GetComponent<GameManager>().moralStatus == 3)
         {
-           keywords.text = "We want the keywords: " + keywordList[0];
+           requirementsText.text = "We want the keywords: " + keywordList[0] + "," + keywordList[1] + "," + keywordList[2];
         }
         if(gameManager.GetComponent<GameManager>().moralStatus == 2)
         {
-           keywords.text = "We want the keywords: " + keywordList[1];
+           requirementsText.text = "We want the keywords: " + keywordList[3] + "," + keywordList[4] + "," + keywordList[5];
         }
-        if(gameManager.GetComponent<GameManager>().moralStatus == 3)
+        if(gameManager.GetComponent<GameManager>().moralStatus == 1)
         {
-           keywords.text = "We want the keywords: " + keywordList[2];
+           requirementsText.text = "We want the keywords: " + keywordList[6] + "," + keywordList[7] + "," + keywordList[8];
         }
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if(headerWords[currentWord] == keywords[0])
+            {
+
+            }
+        }
+    }
+
 
     public void TRButton()
     {

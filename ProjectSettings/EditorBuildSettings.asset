@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Newspaper Scene.unity
     guid: 202bb43561e801a419e69afe7cba1c38
+  - enabled: 1
+    path: Assets/Scenes/MainGame Day2.unity
+    guid: 1d2574886236ad841b2cbc890af322aa
   - enabled: 0
     path: Assets/Scenes/Rain.unity
     guid: 489e05e7119040e4daabe92cdb9c9f50
