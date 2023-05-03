@@ -12,9 +12,10 @@ public class PaperCode : MonoBehaviour
     public Sprite[] newspaperImgs;
     public RawImage[] imgLocations;
     public RawImage[] finalLocation;
-    public Text keywords;
+    public Text keywords, paperHeader;
     public string[] keywordList;
     bool toggle, toggle1;
+    public string input;
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager");
@@ -72,6 +73,14 @@ public class PaperCode : MonoBehaviour
     public void Next()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void ReadStringInput(string s)
+    {
+        input = s;
+        Debug.Log(input);
+        paperHeader.text = s;
+
     }
 
     // check moral status in gamemanager x
