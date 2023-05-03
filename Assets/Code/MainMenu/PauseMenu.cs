@@ -3,55 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
-{
+public class PauseMenu : MonoBehaviour {
     public GameObject pauseMenu;
     public  static bool isPaused;
+    public CharacterController Playerwcam1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         pauseMenu.SetActive(false);
     }
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(isPaused)
-            {
+    void Update() {
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            if(isPaused) {
                 ResumeGame();
             }
-            else
-            {
+            else {
                 PauseGame();
             }
         }
     }
 
-
-    public void PauseGame()
-    {
+    public void PauseGame() {
+        Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        Playerwcam1.enabled = false;
     }
 
-    public void ResumeGame()
-    {
+    public void ResumeGame() {
+        Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        Playerwcam1.enabled = true;
     }
 
-    public void GoToMainMenu()
-    {
-        Time.timeScale = 1f;
+    public void GoToMainMenu() {
+        Time.timeScale = 0f;
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void QuitGame()
-    {
+    public void QuitGame() {
         Application.Quit();
+        Debug.Log("Quitting Game ...");
     }
 }
