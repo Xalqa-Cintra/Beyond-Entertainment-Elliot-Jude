@@ -40,7 +40,7 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
-        isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groudLayer);
+        isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.5f, groudLayer);
 
         if (isOnGround == true && Input.GetKeyDown(KeyCode.Space))
         {

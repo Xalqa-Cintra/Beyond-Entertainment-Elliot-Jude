@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
 {   
     public int moralStatus; //1 = immoral, 2 = neutral, 3 = moral
     public Sprite[] newspaperSprites;
-    public GameObject darkRoomManger;
+    public GameObject darkRoomManger, paperManager;
+
+    int keywordsUsedStorage;
 
     [Header("Mission 1")]
     public bool missionSucceed1;
@@ -21,7 +23,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        GameObject.Find("DarkRoomManager");
+        darkRoomManger = GameObject.Find("DarkRoomManager");
+        paperManager = GameObject.Find("PaperManager");
     }
     public void GetInfoFinal()
     {
@@ -40,6 +43,10 @@ public class GameManager : MonoBehaviour
             missionSucceed1= true;
         }
         //check each soldier is in photo, 
+    }
+    public void GetNewsInfo()
+    {
+        keywordsUsedStorage = paperManager.GetComponent<PaperCode>().keywordUsed;
     }
 
 }

@@ -9,7 +9,7 @@ public class SoldierState : MonoBehaviour
     public bool immoral;
     public bool neutral;
 
-    public int moralValue;
+    public int moralValue, minValueI, maxValueI, minValueM, maxValueM, minValueN, maxValueN;
 
     public bool canSee;
     public bool inView;
@@ -25,15 +25,15 @@ public class SoldierState : MonoBehaviour
     {
         if (moral)
         {
-            moralValue = Random.Range(1, 10);
+            moralValue = Random.Range(minValueM, maxValueM);
         }
         if (immoral)
         {
-            moralValue = Random.Range(-1, -10);
+            moralValue = Random.Range(minValueI, maxValueI);
         }
         if (neutral)
         {
-            moralValue = Random.Range(-3, 3);
+            moralValue = Random.Range(minValueN, maxValueN);
         }
     }
 
@@ -52,8 +52,7 @@ public class SoldierState : MonoBehaviour
         if (Physics.Raycast(re, out RaycastHit hitInfo, camRange))
         {
             canSee = false;
-            Debug.DrawLine(player.transform.position, this.transform.position, Color.green, 15, false);
-            Debug.Log("Blocked");
+
         }
         else
         {

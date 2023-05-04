@@ -13,12 +13,17 @@ public class PaperCode : MonoBehaviour
     public RawImage[] imgLocations;
     public RawImage[] finalLocation;
     public Text requirementsText, paperHeader;
-    public string[] keywords, headerWords, wantedKeywords;
+    public List<string> keywords;
     bool toggle, toggle1, canGoNextDay;
     public string input;
-    public int currentWord, keywordUsed;
+    public int keywordUsed;
     private void Awake()
     {
+        if (gameManager.GetComponent<GameManager>().moralStatus > 0)
+        {
+            buttonChildren[5].SetActive(true);
+        }
+
         gameManager = GameObject.Find("GameManager");
         newspaperImgs[0] = gameManager.GetComponent<GameManager>().newspaperSprites[0];
         newspaperImgs[1] = gameManager.GetComponent<GameManager>().newspaperSprites[1];
@@ -29,45 +34,16 @@ public class PaperCode : MonoBehaviour
 
         if (gameManager.GetComponent<GameManager>().moralStatus == 3)
         {
-           requirementsText.text = "We want the keywords: " + keywords[0] + "," + keywords[1] + "," + keywords[2];
-            wantedKeywords[0] = keywords[0];
-            wantedKeywords[1] = keywords[1];
-            wantedKeywords[2] = keywords[2];
+            requirementsText.text = "We want the keywords: " + keywords[0] + "," + keywords[1] + "," + keywords[2];
         }
         if(gameManager.GetComponent<GameManager>().moralStatus == 2)
         {
            requirementsText.text = "We want the keywords: " + keywords[3] + "," + keywords[4] + "," + keywords[5];
-            wantedKeywords[0] = keywords[3];
-            wantedKeywords[1] = keywords[4];
-            wantedKeywords[2] = keywords[5];
         }
         if(gameManager.GetComponent<GameManager>().moralStatus == 1)
         {
            requirementsText.text = "We want the keywords: " + keywords[6] + "," + keywords[7] + "," + keywords[8];
-            wantedKeywords[0] = keywords[6];
-            wantedKeywords[1] = keywords[7];
-            wantedKeywords[2] = keywords[8];
         }
-    }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(input == (wantedKeywords[0]))
-            {
-                keywordUsed++;
-            }
-            else if (input == (wantedKeywords[1]))
-            {
-                keywordUsed++;
-            }
-            else if (input == (wantedKeywords[2]))
-            {
-                keywordUsed++;
-            }
-            currentWord++;
-        }
-
     }
 
 
@@ -106,19 +82,26 @@ public class PaperCode : MonoBehaviour
         if (keywordUsed == 0) { canGoNextDay = false; } else { canGoNextDay = true; }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void GoBack()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
 
     public void ReadStringInput(string s)
     {
+        
         input = s;
         paperHeader.text = s;
+        string[] inputArray = input.Split(' ');
 
+        for (int i = 0; i < inputArray.Length; i++)
+        {
+            if (keywords.Find(keyword => keyword == inputArray[i]) != null)
+            {
+                Debug.Log("Add 1 to count");
+            }
+        }
     }
 
-
-    // check moral status in gamemanager x
-    // pull sprites and put onto 2 renderers x
-    // have optional areas for photos
-    // maybe players can set text themselves, will require me to have an ai or sumin painful to check for keywords
-    // 
 
 }
