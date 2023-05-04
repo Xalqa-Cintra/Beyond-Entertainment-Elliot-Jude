@@ -19,12 +19,11 @@ public class PaperCode : MonoBehaviour
     public int keywordUsed;
     private void Awake()
     {
+        gameManager = GameObject.Find("GameManager");
         if (gameManager.GetComponent<GameManager>().moralStatus > 0)
         {
-            buttonChildren[5].SetActive(true);
+            buttonChildren[4].SetActive(false);
         }
-
-        gameManager = GameObject.Find("GameManager");
         newspaperImgs[0] = gameManager.GetComponent<GameManager>().newspaperSprites[0];
         newspaperImgs[1] = gameManager.GetComponent<GameManager>().newspaperSprites[1];
         imgLocations[0].texture = newspaperImgs[0].texture;
@@ -98,7 +97,7 @@ public class PaperCode : MonoBehaviour
         {
             if (keywords.Find(keyword => keyword == inputArray[i]) != null)
             {
-                Debug.Log("Add 1 to count");
+                keywordUsed++;
             }
         }
     }

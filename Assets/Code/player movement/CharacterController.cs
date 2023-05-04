@@ -132,10 +132,4 @@ public class CharacterController : MonoBehaviour
             transform.position = AirStripTP.position;
         }
     }
-
-    private void FixedUpdate()
-    {
-        if (Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f))
-            Grounded.text = "Not Grounded";
-    }
 }
