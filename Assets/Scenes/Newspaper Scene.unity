@@ -2231,10 +2231,6 @@ MonoBehaviour:
   - {fileID: 541070407}
   requirementsText: {fileID: 1964732098}
   paperHeader: {fileID: 518191822}
-  keywordList:
-  - deserted, abandoned, hopeless
-  - Hard-working, missing, difficult
-  - brave, honourable, valiant
   keywords:
   - valiant
   - brave
@@ -2276,7 +2272,14 @@ MonoBehaviour:
   - 
   - 
   - 
+  wantedKeywords:
+  - 
+  - 
+  - 
   input: 
+  s: 
+  currentWord: 0
+  keywordUsed: 0
 --- !u!1 &1807007714
 GameObject:
   m_ObjectHideFlags: 0
