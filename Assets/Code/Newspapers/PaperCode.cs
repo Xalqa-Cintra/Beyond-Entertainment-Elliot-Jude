@@ -19,10 +19,12 @@ public class PaperCode : MonoBehaviour
     public int keywordUsed;
     private void Awake()
     {
-        gameManager = GameObject.Find("GameManager");
+        gameManager = GameObject.Find("gamemanager");
+        gameManager.GetComponent<GameManager>().MoveScene();
+        
         if (gameManager.GetComponent<GameManager>().moralStatus > 0)
         {
-            buttonChildren[4].SetActive(false);
+            buttonChildren[4].SetActive(true);
         }
         newspaperImgs[0] = gameManager.GetComponent<GameManager>().newspaperSprites[0];
         newspaperImgs[1] = gameManager.GetComponent<GameManager>().newspaperSprites[1];

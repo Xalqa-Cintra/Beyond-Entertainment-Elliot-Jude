@@ -93,6 +93,9 @@ public class DarkRoomPhotos : MonoBehaviour
         {
             if (selectedPhoto[0].GetComponent<PhotosInfo>().soldierSeen[i] == true && countedSoldiers[i] == false) {finalSoldiers++; countedSoldiers[i] = true;}
             if (selectedPhoto[1].GetComponent<PhotosInfo>().soldierSeen[i] == true && countedSoldiers[i] == false) { finalSoldiers++; countedSoldiers[i] = true; }
+            if (selectedPhoto[0].GetComponent<PhotosInfo>().soldierSeen[i] == true && countedSoldiers[i] == false) { finalSoldiers++; countedSoldiers[i] = true; }
+            if (selectedPhoto[1].GetComponent<PhotosInfo>().soldierSeen[i] == true && countedSoldiers[i] == false) { finalSoldiers++; countedSoldiers[i] = true; }
+
         }
     }
 

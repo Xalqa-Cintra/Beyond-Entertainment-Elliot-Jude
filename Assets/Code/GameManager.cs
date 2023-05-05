@@ -2,28 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {   
     public int moralStatus; //1 = immoral, 2 = neutral, 3 = moral
     public Sprite[] newspaperSprites;
     public GameObject darkRoomManger, paperManager;
-
-    int keywordsUsedStorage;
+    int keywordsUsedStorage, Day;
+    
 
     [Header("Mission 1")]
     public bool missionSucceed1;
     [Header("Mission 2")]
     public bool missionSucceed2;
+    [Header("Mission 3")]
+    public bool missionSucceed3;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
     {
         darkRoomManger = GameObject.Find("DarkRoomManager");
+        paperManager = GameObject.Find("PaperManager");
+
+    }
+    public void MoveScene()
+    {
         paperManager = GameObject.Find("PaperManager");
     }
     public void GetInfoFinal()
@@ -33,14 +41,32 @@ public class GameManager : MonoBehaviour
         newspaperSprites[0] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[0].sprite;
         newspaperSprites[1] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[1].sprite;
         
+        if(Day == 0) { CheckMissionComplete1(); }
+        if (Day == 1) { CheckMissionComplete2(); }
+        if (Day == 2) { CheckMissionComplete3(); }
 
-        CheckMissionComplete1();
     }
     public void CheckMissionComplete1()
     {
         if(darkRoomManger.GetComponent<DarkRoomPhotos>().finalSoldiers==5)
         {
             missionSucceed1= true;
+        }
+        //check each soldier is in photo, 
+    }
+    public void CheckMissionComplete2()
+    {
+        if (darkRoomManger.GetComponent<DarkRoomPhotos>().finalSoldiers == 5)
+        {
+            missionSucceed1 = true;
+        }
+        //check each soldier is in photo, 
+    }
+    public void CheckMissionComplete3()
+    {
+        if (darkRoomManger.GetComponent<DarkRoomPhotos>().finalSoldiers == 5)
+        {
+            missionSucceed1 = true;
         }
         //check each soldier is in photo, 
     }
