@@ -22,7 +22,7 @@ public class PaperCode : MonoBehaviour
         gameManager = GameObject.Find("gamemanager");
         gameManager.GetComponent<GameManager>().MoveScene();
         
-        if (gameManager.GetComponent<GameManager>().moralStatus > 0)
+        if (gameManager.GetComponent<GameManager>().moralStatus > 0 && (gameManager.GetComponent<GameManager>().missionSucceed1 == false || gameManager.GetComponent<GameManager>().missionSucceed2 == false || gameManager.GetComponent<GameManager>().missionSucceed3 == false))
         {
             buttonChildren[4].SetActive(true);
         }

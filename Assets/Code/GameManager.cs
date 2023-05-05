@@ -14,10 +14,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Mission 1")]
     public bool missionSucceed1;
+    public int day1Value;
     [Header("Mission 2")]
     public bool missionSucceed2;
+    public int day2Value;
     [Header("Mission 3")]
     public bool missionSucceed3;
+    public int day3Value;
 
     private void Awake()
     {
@@ -41,9 +44,9 @@ public class GameManager : MonoBehaviour
         newspaperSprites[0] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[0].sprite;
         newspaperSprites[1] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[1].sprite;
         
-        if(Day == 0) { CheckMissionComplete1(); }
-        if (Day == 1) { CheckMissionComplete2(); }
-        if (Day == 2) { CheckMissionComplete3(); }
+        if(Day == 0) { CheckMissionComplete1(); day1Value = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral; }
+        if (Day == 1) { CheckMissionComplete2(); day2Value = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral; }
+        if (Day == 2) { CheckMissionComplete3(); day3Value = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral; }
 
     }
     public void CheckMissionComplete1()
