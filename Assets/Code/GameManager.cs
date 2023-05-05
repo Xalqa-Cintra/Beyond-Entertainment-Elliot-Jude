@@ -56,17 +56,17 @@ public class GameManager : MonoBehaviour
     }
     public void CheckMissionComplete2()
     {
-        if (darkRoomManger.GetComponent<DarkRoomPhotos>().finalSoldiers == 5)
+        if (darkRoomManger.GetComponent<DarkRoomPhotos>().countedSarge == true)
         {
-            missionSucceed1 = true;
+            missionSucceed2 = true;
         }
         //check each soldier is in photo, 
     }
     public void CheckMissionComplete3()
     {
-        if (darkRoomManger.GetComponent<DarkRoomPhotos>().finalSoldiers == 5)
+        if (darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral == 3)
         {
-            missionSucceed1 = true;
+            missionSucceed3 = true;
         }
         //check each soldier is in photo, 
     }

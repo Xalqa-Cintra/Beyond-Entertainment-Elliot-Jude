@@ -8,11 +8,12 @@ public class DarkRoomPhotos : MonoBehaviour
     public GameObject[] photoSelectables;
     public GameObject[] selectedPhoto;
     public SpriteRenderer[] photoMeshSprite;
-    public int currentPhoto, finalMoral;
+    public int currentPhoto, finalMoral, currentMoral;
     public SpriteRenderer[] finalSprite;
     public int selectedAmt;
     public int finalSoldiers;
     public bool[] countedSoldiers;
+    public bool countedSarge;
 
     private void Start()
     {
@@ -63,38 +64,26 @@ public class DarkRoomPhotos : MonoBehaviour
 
         finalSprite[0] = selectedPhoto[0].GetComponent<SpriteRenderer>();
         finalSprite[1] = selectedPhoto[1].GetComponent<SpriteRenderer>();
-
-        if (selectedPhoto[0].GetComponent<PhotosInfo>().photoValue < -3)
+        currentMoral = selectedPhoto[0].GetComponent<PhotosInfo>().photoValue + selectedPhoto[1].GetComponent<PhotosInfo>().photoValue;
+        if (currentMoral < -3)
         {
-            finalMoral = 1;
+            finalMoral += 1;
         }
-        if (selectedPhoto[0].GetComponent<PhotosInfo>().photoValue > -3 && selectedPhoto[0].GetComponent<PhotosInfo>().photoValue < 5)
+        if (currentMoral > -3 && currentMoral < 5)
         {
-            finalMoral = 2;
+            finalMoral += 2;
         }
-        if (selectedPhoto[0].GetComponent<PhotosInfo>().photoValue > 5)
+        if (currentMoral > 5)
         {
-            finalMoral = 3;
-        }
-
-        if (selectedPhoto[1].GetComponent<PhotosInfo>().photoValue < -3)
-        {
-            finalMoral = 1;
-        }
-        if (selectedPhoto[1].GetComponent<PhotosInfo>().photoValue > -3 && selectedPhoto[1].GetComponent<PhotosInfo>().photoValue < 5)
-        {
-            finalMoral = 2;
-        }
-        if (selectedPhoto[1].GetComponent<PhotosInfo>().photoValue > 5)
-        {
-            finalMoral = 3;
+            finalMoral += 3;
         }
         for (int i = 0; i < 5; i++)
         {
-            if (selectedPhoto[0].GetComponent<PhotosInfo>().soldierSeen[i] == true && countedSoldiers[i] == false) {finalSoldiers++; countedSoldiers[i] = true;}
-            if (selectedPhoto[1].GetComponent<PhotosInfo>().soldierSeen[i] == true && countedSoldiers[i] == false) { finalSoldiers++; countedSoldiers[i] = true; }
             if (selectedPhoto[0].GetComponent<PhotosInfo>().soldierSeen[i] == true && countedSoldiers[i] == false) { finalSoldiers++; countedSoldiers[i] = true; }
             if (selectedPhoto[1].GetComponent<PhotosInfo>().soldierSeen[i] == true && countedSoldiers[i] == false) { finalSoldiers++; countedSoldiers[i] = true; }
+            if (selectedPhoto[0].GetComponent<PhotosInfo>().soldierSeen[1] == true && countedSoldiers[i] == false) { countedSarge = true; countedSoldiers[i] = true; } //day 2 mission
+            if (selectedPhoto[1].GetComponent<PhotosInfo>().soldierSeen[1] == true && countedSoldiers[i] == false) { countedSarge = true; countedSoldiers[i] = true; } //day 2 mission
+
 
         }
     }
