@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour {
     public CharacterController Playerwcam1;
 
     void Start() {
+        pauseMenu = GameObject.Find("PauseMenuUI");
         pauseMenu.SetActive(false);
     }
 

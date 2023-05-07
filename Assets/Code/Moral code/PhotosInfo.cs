@@ -41,7 +41,4 @@ public class PhotosInfo : MonoBehaviour, IInteractable
             }
         }
     }    
-
-    //retrieve info from soldier manager
-    //put into this code for each photo fromdarkroommanager
 }

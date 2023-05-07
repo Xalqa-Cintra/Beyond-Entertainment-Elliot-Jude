@@ -81,6 +81,7 @@ public class PaperCode : MonoBehaviour
     public void Next()
     {
         if (keywordUsed == 0) { canGoNextDay = false; } else { canGoNextDay = true; }
+        gameManager.GetComponent<GameManager>().GetNewsInfo();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void GoBack()

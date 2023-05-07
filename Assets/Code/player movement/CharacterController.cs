@@ -32,6 +32,8 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
+        gameManager = GameObject.Find("gamemanager");
+        gameManager.GetComponent<GameManager>().MoveScene();
         sprintTimer = maxSprint;
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
