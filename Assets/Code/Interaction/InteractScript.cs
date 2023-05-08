@@ -9,20 +9,22 @@ public class InteractScript : MonoBehaviour
 {
     public Transform interactorSource;
     public float interactorRange;
+    public GameObject cursor;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        Ray r = new Ray(interactorSource.position, interactorSource.forward);
+        if (Physics.Raycast(r, out RaycastHit hitInfo, interactorRange))
         {
-            Ray r = new Ray(interactorSource.position, interactorSource.forward);
-            if(Physics.Raycast(r, out RaycastHit hitInfo, interactorRange))
+            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))   
             {
-                if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+                cursor.SetActive(true);
+                if (Input.GetMouseButtonDown(0))
                 {
                     interactObj.Interact();
                 }
-            }
+            } else { cursor.SetActive(false); }
         }
     }
 }
