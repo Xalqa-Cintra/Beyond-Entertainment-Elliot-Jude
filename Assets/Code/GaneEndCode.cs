@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GaneEndCode : MonoBehaviour
 {
     GameObject gameManager;
-    RawImage[] photos;
-    Text[] headers;
+    public RawImage[] photos;
+    public Text[] headers;
 
     public Text[] missions;
     public Text[] score;
@@ -22,5 +22,16 @@ public class GaneEndCode : MonoBehaviour
         score[0].text = "Score:" + (gameManager.GetComponent<GameManager>().day1Value * gameManager.GetComponent<GameManager>().keywordsUsedStorage);
         score[1].text = "Score:" + (gameManager.GetComponent<GameManager>().day2Value * gameManager.GetComponent<GameManager>().keywordsUsedStorage);
         score[2].text = "Score:" + (gameManager.GetComponent<GameManager>().day3Value * gameManager.GetComponent<GameManager>().keywordsUsedStorage);
+
+        photos[0].texture = gameManager.GetComponent<GameManager>().paper1[0];
+        photos[1].texture = gameManager.GetComponent<GameManager>().paper1[1];
+        photos[2].texture = gameManager.GetComponent<GameManager>().paper2[0];
+        photos[3].texture = gameManager.GetComponent<GameManager>().paper2[1];
+        photos[4].texture = gameManager.GetComponent<GameManager>().paper3[0];
+        photos[5].texture = gameManager.GetComponent<GameManager>().paper3[1];
+
+        headers[0].text = gameManager.GetComponent<GameManager>().paper1Header;
+        headers[1].text = gameManager.GetComponent<GameManager>().paper1Header;
+        headers[2].text = gameManager.GetComponent<GameManager>().paper1Header;
     }
 }

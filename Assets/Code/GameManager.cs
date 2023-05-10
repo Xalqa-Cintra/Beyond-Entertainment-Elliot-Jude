@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         darkRoomManger = GameObject.Find("DarkRoomManager");
         paperManager = GameObject.Find("PaperManager");
+        Day++;
     }
     public void GetInfoFinal()
     {
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour
     }
     public void CheckMissionComplete3()
     {
-        if (darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral == 3)
+        if (darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral >= 3)
         {
             missionSucceed3 = true;
         }
@@ -93,11 +94,13 @@ public class GameManager : MonoBehaviour
         {
             paper2[0] = paperManager.GetComponent<PaperCode>().imgLocations[0].texture;
             paper2[1] = paperManager.GetComponent<PaperCode>().imgLocations[1].texture;
+            paper2Header = paperManager.GetComponent<PaperCode>().paperHeader.text;
         }
         if(Day == 2) 
         {
             paper3[0] = paperManager.GetComponent<PaperCode>().imgLocations[0].texture;
             paper3[1] = paperManager.GetComponent<PaperCode>().imgLocations[1].texture;
+            paper3Header = paperManager.GetComponent<PaperCode>().paperHeader.text;
         }
     }
 

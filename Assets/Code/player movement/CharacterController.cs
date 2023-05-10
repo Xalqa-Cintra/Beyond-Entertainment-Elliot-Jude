@@ -14,16 +14,16 @@ public class CharacterController : MonoBehaviour
     float sensY;
     public GameObject cam;
     Rigidbody rb;
-    public GameObject cameraManager, gameManager;
+    public GameObject cameraManager, gameManager, nextArea;
     float rotationSpeed = 2.0f;
     float camRoatationSpeed = -1.5f;
-    bool isOnGround;
+    bool isOnGround, canTP;
     public GameObject groundChecker;
     public LayerMask groudLayer;
     public float jumpForce = 300.0f;
     public float maxSprint = 5.0f, gravity;
     float sprintTimer;
-    public int added;
+    public int added, tpno;
     public float distToGround = 1f;
     public Text Grounded;
 
@@ -88,6 +88,10 @@ public class CharacterController : MonoBehaviour
             cameraManager.GetComponent<PhotoCapture>().canTakePhoto = !cameraManager.GetComponent<PhotoCapture>().canTakePhoto;
 
         }
+        if(Input.GetMouseButtonDown(0) && cameraManager.GetComponent<PhotoCapture>().canTakePhoto == false && canTP)
+        {
+
+        }
     }
 
 
@@ -102,7 +106,7 @@ public class CharacterController : MonoBehaviour
         }
         if (other.tag == "DarkroomTP")
         {
-            transform.position = darkroomTP.position;
+            transform.position = darkroomTP.position;// set tps to a value;
         }
         if (other.tag == "BunkerTP")
         {
