@@ -48,9 +48,6 @@ public class PhotoCapture : MonoBehaviour
         {
             camHud.SetActive(false);
         }
-
-            
-
             if (Input.GetMouseButtonDown(0) && canTakePhoto && photoLimit > 0)
             {
                 if (!viewingPhoto)

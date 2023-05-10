@@ -28,6 +28,7 @@ public class CharacterController : MonoBehaviour
     public Text Grounded;
 
     public Transform darkroomTP, bunkerTP, mapTP, bunkerMapTP, warTP, warMapTP, AirStripTP, airStripMapTP;
+    public int teleports;
 
 
     void Start()
@@ -88,12 +89,50 @@ public class CharacterController : MonoBehaviour
             cameraManager.GetComponent<PhotoCapture>().canTakePhoto = !cameraManager.GetComponent<PhotoCapture>().canTakePhoto;
 
         }
+        if(canTP) { nextArea.SetActive(true); }
         if(Input.GetMouseButtonDown(0) && cameraManager.GetComponent<PhotoCapture>().canTakePhoto == false && canTP)
         {
-
+            nextArea.SetActive(false);
+            CheckTeleports();
+            
         }
     }
 
+    public void CheckTeleports()
+    {
+        switch (teleports)
+        {
+            case 1:
+                transform.position = darkroomTP.position;// set tps to a value;
+                break;
+            case 2:
+                transform.position = bunkerTP.position;
+                break;
+            case 3:
+                cameraManager.GetComponent<PhotoCapture>().photoLimit = 3;
+                cameraManager.GetComponent<PhotoCapture>().SetMaxLimit();
+                transform.position = mapTP.position;
+                break;
+            case 4:
+                transform.position = bunkerMapTP.position;
+                break;
+            case 5:
+                transform.position = warTP.position;
+                break;
+            case 6:
+                transform.position = warMapTP.position;
+                break;
+            case 7:
+                transform.position = airStripMapTP.position;
+                break;
+            case 8:
+                transform.position = AirStripTP.position;
+                break;
+
+        }
+        teleports = 0;
+        canTP = false;
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -106,37 +145,43 @@ public class CharacterController : MonoBehaviour
         }
         if (other.tag == "DarkroomTP")
         {
-            transform.position = darkroomTP.position;// set tps to a value;
+            canTP = true;
+            teleports = 1;
         }
         if (other.tag == "BunkerTP")
         {
-            transform.position = bunkerTP.position;
+            canTP = true;
+            teleports = 2;
         }
         if (other.tag == "MapTP")
         {
-            cameraManager.GetComponent<PhotoCapture>().photoLimit = 3;
-            cameraManager.GetComponent<PhotoCapture>().SetMaxLimit();
-            transform.position = mapTP.position;
+            canTP = true;
+            teleports = 3;
         }
         if (other.tag == "BunkerMapTP")
         {
-            transform.position = bunkerMapTP.position;
+            canTP = true;
+            teleports = 4;
         }
         if (other.tag == "WarTP")
         {
-            transform.position = warTP.position;
+            canTP = true;
+            teleports = 5;
         }
         if (other.tag == "WarMapTP")
         {
-            transform.position = warMapTP.position;
+            canTP = true;
+            teleports = 6;
         }
         if (other.tag == "AirStripMapTP")
         {
-            transform.position = airStripMapTP.position;
+            canTP = true;
+            teleports = 7;
         }
         if (other.tag == "AirStripTP")
         {
-            transform.position = AirStripTP.position;
+            canTP = true;
+            teleports = 8;
         }
     }
 }
