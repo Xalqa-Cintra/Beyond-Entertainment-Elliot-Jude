@@ -34,6 +34,7 @@ public class CharacterController : MonoBehaviour
     {
         gameManager = GameObject.Find("gamemanager");
         gameManager.GetComponent<GameManager>().MoveScene();
+        gameManager.GetComponent<GameManager>().FirstLoad();
         sprintTimer = maxSprint;
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public Sprite[] newspaperSprites;
     public GameObject darkRoomManger, paperManager;
     public int keywordsUsedStorage, Day;
-    
+    bool firstLoad;
 
     [Header("Mission 1")]
     public bool missionSucceed1;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-            DontDestroyOnLoad(this.gameObject);
+            
     }
 
     private void Start()
@@ -99,6 +99,17 @@ public class GameManager : MonoBehaviour
             paper3[0] = paperManager.GetComponent<PaperCode>().imgLocations[0].texture;
             paper3[1] = paperManager.GetComponent<PaperCode>().imgLocations[1].texture;
         }
+    }
+
+    public void FirstLoad()
+    {
+        if(firstLoad == false)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            gameObject.GetComponent<AudioSource>().Play();
+            firstLoad = true;
+        }
+
     }
 
 }
