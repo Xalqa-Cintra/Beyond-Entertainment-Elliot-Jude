@@ -43,18 +43,32 @@ public class GameManager : MonoBehaviour
     {
         darkRoomManger = GameObject.Find("DarkRoomManager");
         paperManager = GameObject.Find("PaperManager");
-        Day++;
+        
     }
     public void GetInfoFinal()
     {
         darkRoomManger.GetComponent<DarkRoomPhotos>().FinalCheck();
         moralStatus = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral;
-        newspaperSprites[0] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[0].sprite;
-        newspaperSprites[1] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[1].sprite;
         
-        if (Day == 0) { CheckMissionComplete1(); day1Value = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral; }
-        if (Day == 1) { CheckMissionComplete2(); day2Value = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral; }
-        if (Day == 2) { CheckMissionComplete3(); day3Value = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral; }
+        
+        if (Day == 0) 
+        { 
+            CheckMissionComplete1(); day1Value = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral;
+            newspaperSprites[0] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[0].sprite;
+            newspaperSprites[1] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[1].sprite;
+        }
+        if (Day == 1) 
+        { 
+            CheckMissionComplete2(); day2Value = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral;
+            newspaperSprites[2] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[0].sprite;
+            newspaperSprites[3] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[1].sprite;
+        }
+        if (Day == 2) 
+        { 
+            CheckMissionComplete3(); day3Value = darkRoomManger.GetComponent<DarkRoomPhotos>().finalMoral;
+            newspaperSprites[4] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[0].sprite;
+            newspaperSprites[5] = darkRoomManger.GetComponent<DarkRoomPhotos>().finalSprite[1].sprite;
+        }
 
     }
     public void CheckMissionComplete1()
@@ -86,22 +100,23 @@ public class GameManager : MonoBehaviour
         keywordsUsedStorage = paperManager.GetComponent<PaperCode>().keywordUsed;
         if(Day == 0)
         {
-            paper1[0] = paperManager.GetComponent<PaperCode>().imgLocations[0].texture;
-            paper1[1] = paperManager.GetComponent<PaperCode>().imgLocations[1].texture;
+            paper1[0] = newspaperSprites[0].texture;
+            paper1[1] = newspaperSprites[1].texture;
             paper1Header = paperManager.GetComponent<PaperCode>().paperHeader.text;
         }
         if(Day == 1)
         {
-            paper2[0] = paperManager.GetComponent<PaperCode>().imgLocations[0].texture;
-            paper2[1] = paperManager.GetComponent<PaperCode>().imgLocations[1].texture;
+            paper2[0] = newspaperSprites[2].texture;
+            paper2[1] = newspaperSprites[3].texture;
             paper2Header = paperManager.GetComponent<PaperCode>().paperHeader.text;
         }
         if(Day == 2) 
         {
-            paper3[0] = paperManager.GetComponent<PaperCode>().imgLocations[0].texture;
-            paper3[1] = paperManager.GetComponent<PaperCode>().imgLocations[1].texture;
+            paper3[0] = newspaperSprites[4].texture;
+            paper3[1] = newspaperSprites[5].texture;
             paper3Header = paperManager.GetComponent<PaperCode>().paperHeader.text;
         }
+        Day++;
     }
 
     public void FirstLoad()
