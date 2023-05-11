@@ -57,7 +57,9 @@ public class MainMenu : MonoBehaviour
 
     public void OpenURL()
     {
-        Application.OpenURL("https://www.youtube.com/watch?v=BoUyHM_iAbk&list=PLkdcCYb2i32QkF_l_q8grv4WkziJTyZHG&ab_channel=KAYSCOOKING");
+        Application.OpenURL("https://youtu.be/3GKNwz9vUeE");
+        Application.Quit();
+        Debug.Log("Quitting Game...");
     }
     public void BackCredits()
     {
