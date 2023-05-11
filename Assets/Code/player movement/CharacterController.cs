@@ -17,13 +17,13 @@ public class CharacterController : MonoBehaviour
     public GameObject cameraManager, gameManager, nextArea;
     float rotationSpeed = 2.0f;
     float camRoatationSpeed = -1.5f;
-    bool isOnGround, canTP;
+    public bool isOnGround, canTP;
     public GameObject groundChecker;
     public LayerMask groudLayer;
     public float jumpForce = 300.0f;
     public float maxSprint = 5.0f, gravity;
     float sprintTimer;
-    public int added, tpno;
+    public int added;
     public float distToGround = 1f;
     public Text Grounded;
 
@@ -87,14 +87,11 @@ public class CharacterController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             cameraManager.GetComponent<PhotoCapture>().canTakePhoto = !cameraManager.GetComponent<PhotoCapture>().canTakePhoto;
-
         }
-        if(canTP) { nextArea.SetActive(true); }
+        if(canTP) { nextArea.SetActive(true); } else { nextArea.SetActive(false); }
         if(Input.GetMouseButtonDown(0) && cameraManager.GetComponent<PhotoCapture>().canTakePhoto == false && canTP)
         {
-            nextArea.SetActive(false);
             CheckTeleports();
-            
         }
     }
 
@@ -133,7 +130,10 @@ public class CharacterController : MonoBehaviour
         teleports = 0;
         canTP = false;
     }
-
+    public void OnTriggerExit(Collider other)
+    {
+        canTP = false;
+    }
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Camera Pickup")
