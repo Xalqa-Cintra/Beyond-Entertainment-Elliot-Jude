@@ -31,7 +31,7 @@ public class GaneEndCode : MonoBehaviour
         photos[5].texture = gameManager.GetComponent<GameManager>().paper3[1];
 
         headers[0].text = gameManager.GetComponent<GameManager>().paper1Header;
-        headers[1].text = gameManager.GetComponent<GameManager>().paper1Header;
-        headers[2].text = gameManager.GetComponent<GameManager>().paper1Header;
+        headers[1].text = gameManager.GetComponent<GameManager>().paper2Header;
+        headers[2].text = gameManager.GetComponent<GameManager>().paper3Header;
     }
 }

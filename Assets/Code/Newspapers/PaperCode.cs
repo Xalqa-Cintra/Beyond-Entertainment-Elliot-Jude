@@ -28,8 +28,22 @@ public class PaperCode : MonoBehaviour
         }
         newspaperImgs[0] = gameManager.GetComponent<GameManager>().newspaperSprites[0];
         newspaperImgs[1] = gameManager.GetComponent<GameManager>().newspaperSprites[1];
-        imgLocations[0].texture = newspaperImgs[0].texture;
-        imgLocations[1].texture = newspaperImgs[1].texture;
+        if(gameManager.GetComponent<GameManager>().Day == 0) 
+        {
+            imgLocations[0].texture = newspaperImgs[0].texture;
+            imgLocations[1].texture = newspaperImgs[1].texture;
+        }
+        if (gameManager.GetComponent<GameManager>().Day == 1)
+        {
+            imgLocations[0].texture = newspaperImgs[2].texture;
+            imgLocations[1].texture = newspaperImgs[3].texture;
+        }
+        if (gameManager.GetComponent<GameManager>().Day == 2)
+        {
+            imgLocations[0].texture = newspaperImgs[4].texture;
+            imgLocations[1].texture = newspaperImgs[5].texture;
+        }
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
