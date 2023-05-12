@@ -65,6 +65,18 @@ public class MainMenu : MonoBehaviour
     {
         Application.OpenURL("https://youtu.be/ndEEbMPCyOo");
     }
+    public void JudeURL()   
+    {
+        Application.OpenURL("https://www.youtube.com/watch?v=te6rMsNJR-g");
+    }
+    public void AlexURL()
+    {
+        Application.OpenURL("https://www.youtube.com/watch?v=fTczCpIaLAU");
+    }
+    public void ElliotURL()
+    {
+        Application.OpenURL("https://www.youtube.com/watch?v=WIRK_pGdIdA");
+    }
     public void BackCredits()
     {
         SceneManager.LoadScene("CreditsMenu");
