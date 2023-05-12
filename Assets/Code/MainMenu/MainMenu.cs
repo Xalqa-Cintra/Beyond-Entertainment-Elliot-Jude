@@ -61,6 +61,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quitting Game...");
     }
+    public void LiamURL()
+    {
+        Application.OpenURL("https://youtu.be/ndEEbMPCyOo");
+    }
     public void BackCredits()
     {
         SceneManager.LoadScene("CreditsMenu");
