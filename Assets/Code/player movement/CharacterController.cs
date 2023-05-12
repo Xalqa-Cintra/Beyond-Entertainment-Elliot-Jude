@@ -21,7 +21,7 @@ public class CharacterController : MonoBehaviour
     public GameObject groundChecker;
     public LayerMask groudLayer;
     public float jumpForce = 300.0f;
-    public float maxSprint = 5.0f, gravity;
+    public float maxSprint = 10.0f, gravity;
     float sprintTimer;
     public int added;
     public float distToGround = 1f;
