@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     }
     public void CheckMissionComplete1()
     {
-        if(darkRoomManger.GetComponent<DarkRoomPhotos>().finalSoldiers==5)
+        if(darkRoomManger.GetComponent<DarkRoomPhotos>().finalSoldiers==3)
         {
             missionSucceed1= true;
         }
