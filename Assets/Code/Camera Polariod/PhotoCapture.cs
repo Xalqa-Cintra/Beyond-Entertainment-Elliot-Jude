@@ -25,6 +25,7 @@ public class PhotoCapture : MonoBehaviour
     public bool viewingPhoto;
     public bool canTakePhoto, photoRemoved, inCamera;
 
+    public AudioSource photoSource;
 
 
     public int photoLimit, photoTaken, photoTotal;
@@ -100,6 +101,7 @@ public class PhotoCapture : MonoBehaviour
     IEnumerator CameraFlashEffect()
     {
         cameraFlash.SetActive(true);
+        photoSource.Play();
         yield return new WaitForSeconds(flashTime);
         cameraFlash.SetActive(false);
     }

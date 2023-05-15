@@ -26,6 +26,7 @@ public class CharacterController : MonoBehaviour
     public int added;
     public float distToGround = 1f;
     public Text Grounded;
+    public AudioSource footsteps;
 
     public Transform darkroomTP, bunkerTP, mapTP, bunkerMapTP, warTP, warMapTP, AirStripTP, airStripMapTP;
     public int teleports;
@@ -84,6 +85,8 @@ public class CharacterController : MonoBehaviour
 
         camRotation = Mathf.Clamp(camRotation, -80f, 80f);
 
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) { footsteps.Play();} else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D)) { footsteps.Pause(); }
+        
         if (Input.GetMouseButtonDown(1))
         {
             cameraManager.GetComponent<PhotoCapture>().canTakePhoto = !cameraManager.GetComponent<PhotoCapture>().canTakePhoto;
