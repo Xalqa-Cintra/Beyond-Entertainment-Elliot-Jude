@@ -2437,6 +2437,10 @@ MonoBehaviour:
   newspaperImgs:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   imgLocations:
   - {fileID: 1623139603}
   - {fileID: 1873284352}
