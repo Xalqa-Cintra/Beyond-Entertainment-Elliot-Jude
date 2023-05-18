@@ -9,29 +9,24 @@ public class GameManager : MonoBehaviour
     public int moralStatus; //1 = immoral, 2 = neutral, 3 = moral
     public Sprite[] newspaperSprites;
     public GameObject darkRoomManger, paperManager;
-    public int keywordsUsedStorage, Day;
+    public int Day;
     bool firstLoad;
 
     [Header("Mission 1")]
     public bool missionSucceed1;
-    public int day1Value;
+    public int day1Value, keywordsUsedStorage1;
     public Texture[] paper1;
     public string paper1Header;
     [Header("Mission 2")]
     public bool missionSucceed2;
-    public int day2Value;
+    public int day2Value, keywordsUsedStorage2;
     public Texture[] paper2;
     public string paper2Header;
     [Header("Mission 3")]
     public bool missionSucceed3;
-    public int day3Value;
+    public int day3Value, keywordsUsedStorage3;
     public Texture[] paper3;
     public string paper3Header;
-
-    private void Awake()
-    {
-            
-    }
 
     private void Start()
     {
@@ -97,21 +92,24 @@ public class GameManager : MonoBehaviour
     }
     public void GetNewsInfo()
     {
-        keywordsUsedStorage = paperManager.GetComponent<PaperCode>().keywordUsed;
+        
         if(Day == 0)
         {
+            keywordsUsedStorage1 = paperManager.GetComponent<PaperCode>().keywordUsed;
             paper1[0] = newspaperSprites[0].texture;
             paper1[1] = newspaperSprites[1].texture;
             paper1Header = paperManager.GetComponent<PaperCode>().paperHeader.text;
         }
         if(Day == 1)
         {
+            keywordsUsedStorage2 = paperManager.GetComponent<PaperCode>().keywordUsed;
             paper2[0] = newspaperSprites[2].texture;
             paper2[1] = newspaperSprites[3].texture;
             paper2Header = paperManager.GetComponent<PaperCode>().paperHeader.text;
         }
         if(Day == 2) 
         {
+            keywordsUsedStorage3 = paperManager.GetComponent<PaperCode>().keywordUsed;
             paper3[0] = newspaperSprites[4].texture;
             paper3[1] = newspaperSprites[5].texture;
             paper3Header = paperManager.GetComponent<PaperCode>().paperHeader.text;

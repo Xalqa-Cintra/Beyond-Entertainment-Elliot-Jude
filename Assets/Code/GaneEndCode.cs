@@ -19,9 +19,9 @@ public class GaneEndCode : MonoBehaviour
         if (gameManager.GetComponent<GameManager>().missionSucceed2) { missions[1].text = "QUOTA MET"; } else { missions[1].text = "QUOTA FAILED"; }
         if (gameManager.GetComponent<GameManager>().missionSucceed3) { missions[2].text = "QUOTA MET"; } else { missions[2].text = "QUOTA FAILED"; }
 
-        score[0].text = "Score:" + (gameManager.GetComponent<GameManager>().day1Value * gameManager.GetComponent<GameManager>().keywordsUsedStorage);
-        score[1].text = "Score:" + (gameManager.GetComponent<GameManager>().day2Value * gameManager.GetComponent<GameManager>().keywordsUsedStorage);
-        score[2].text = "Score:" + (gameManager.GetComponent<GameManager>().day3Value * gameManager.GetComponent<GameManager>().keywordsUsedStorage);
+        score[0].text = "Score:" + (gameManager.GetComponent<GameManager>().day1Value + (gameManager.GetComponent<GameManager>().day1Value * gameManager.GetComponent<GameManager>().keywordsUsedStorage1));
+        score[1].text = "Score:" + (gameManager.GetComponent<GameManager>().day2Value + (gameManager.GetComponent<GameManager>().day2Value * gameManager.GetComponent<GameManager>().keywordsUsedStorage2));
+        score[2].text = "Score:" + (gameManager.GetComponent<GameManager>().day3Value + (gameManager.GetComponent<GameManager>().day1Value * gameManager.GetComponent<GameManager>().keywordsUsedStorage3));
 
         photos[0].texture = gameManager.GetComponent<GameManager>().paper1[0];
         photos[1].texture = gameManager.GetComponent<GameManager>().paper1[1];
