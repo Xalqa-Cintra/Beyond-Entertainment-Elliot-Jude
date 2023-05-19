@@ -5,6 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Camera Pickup
+  - DarkroomTP
+  - BunkerTP
+  - bunkerLimit
+  - MapTP
+  - inView
+  - BunkerMapTP
+  - WarTP
+  - WarMapTP
+  - AirStripTP
+  - AirStripMapTP
   layers:
   - Default
   - TransparentFX

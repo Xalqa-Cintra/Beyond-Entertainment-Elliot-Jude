@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd4adc998da77f43b533d9762598944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraManager: {fileID: 0}
+  cameraManager: {fileID: 9215550505391740587, guid: ea6344572fa294e4a8d534e01d8fcc3d, type: 3}
   photoSelectables:
   - {fileID: 1388301306755188173}
   - {fileID: 1388301305925833838}
@@ -64,13 +64,7 @@ MonoBehaviour:
   - {fileID: 1388301305506488587}
   - {fileID: 1388301305473678628}
   - {fileID: 1388301305592218697}
-  spriteArray:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  currentPhoto: 0
 --- !u!1 &1388301305473678649
 GameObject:
   m_ObjectHideFlags: 0
