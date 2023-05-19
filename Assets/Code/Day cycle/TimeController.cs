@@ -38,7 +38,7 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     private float maxMoonLightIntensity;
 
-    public DateTime currentTime;
+    private DateTime currentTime;
 
     private TimeSpan sunriseTime;
 

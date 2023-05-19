@@ -9,7 +9,7 @@ public class SoldierCode : MonoBehaviour
 
     public GameObject[] allsoldiers;
 
-    public bool soldier1Seen, soldier2Seen, soldier3Seen, soldier4Seen, soldier5Seen;// s1InView, s2InView, s3InView, s4InView, s5InView;
+    public bool soldier1Seen, soldier2Seen, soldier3Seen, soldier4Seen, soldier5Seen;
     bool receivedInfo;
     public int totalMoral;
 
@@ -31,7 +31,7 @@ public class SoldierCode : MonoBehaviour
             GetInfo();
             if (!receivedInfo)
             {
-               
+                Debug.Log("Total Moral is:" + totalMoral);
                 receivedInfo = true;
             }
         }

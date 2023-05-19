@@ -25,7 +25,6 @@ public class PhotoCapture : MonoBehaviour
     public bool viewingPhoto;
     public bool canTakePhoto, photoRemoved, inCamera;
 
-    public AudioSource photoSource;
 
 
     public int photoLimit, photoTaken, photoTotal;
@@ -49,6 +48,9 @@ public class PhotoCapture : MonoBehaviour
         {
             camHud.SetActive(false);
         }
+
+            
+
             if (Input.GetMouseButtonDown(0) && canTakePhoto && photoLimit > 0)
             {
                 if (!viewingPhoto)
@@ -66,9 +68,7 @@ public class PhotoCapture : MonoBehaviour
                 }
 
             }
-        if (Input.GetMouseButtonDown(1) && viewingPhoto) { CheckLimit(); RemovePhoto(); photoRemoved = true; }
-
-
+        
 
     }
 
@@ -101,7 +101,6 @@ public class PhotoCapture : MonoBehaviour
     IEnumerator CameraFlashEffect()
     {
         cameraFlash.SetActive(true);
-        photoSource.Play();
         yield return new WaitForSeconds(flashTime);
         cameraFlash.SetActive(false);
     }
@@ -136,6 +135,22 @@ public class PhotoCapture : MonoBehaviour
         }
     }
 
+    //Gamobject[] store all shots
+    //when take shot, disable 1 
 
+    //create gameobject of picture
+    //put moral value into it
+    //place in darkroom
+    //let player be able to pick it
+    //add somewhere for the photos to be saved when taken 
+
+//PUT PHOTO ONTO REDROOM
+    // cube in redroom
+    // setactive(false)
+    // set up a foreach meshfilter, add to array
+    //when photo taken, activate cube(phototaken)
+    //pull and apply sprite in photo to the cube
+    //setbool (photoXdone)
+    //when bool active, dont repeat  
 
 }
