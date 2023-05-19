@@ -9,43 +9,37 @@ public class SoldierState : MonoBehaviour
     public bool immoral;
     public bool neutral;
 
-    public int moralValue;
+    public int moralValue, minValueI, maxValueI, minValueM, maxValueM, minValueN, maxValueN;
 
     public bool canSee;
-
+    public bool inView;
+    public float camRange;
 
     public LayerMask npcLayer;
     public GameObject player;
     public GameObject manager;
+    public GameObject maxView;
 
     //set value to bools depending on rng maybe, most likely jus predetermined for now
     private void Start()
     {
         if (moral)
         {
-            moralValue = Random.Range(1, 10);
+            moralValue = Random.Range(minValueM, maxValueM);
         }
         if (immoral)
         {
-            moralValue = Random.Range(-1, -10);
+            moralValue = Random.Range(minValueI, maxValueI);
         }
         if (neutral)
         {
-            moralValue = Random.Range(-3, 3);
+            moralValue = Random.Range(minValueN, maxValueN);
         }
     }
 
     private void OnBecameVisible()
     {
         CheckIfSeen();
-        if(canSee)
-        {
-            Debug.Log(moralValue);
-        }
-        else
-        {
-            Debug.Log("Can't See");
-        }
     }
     private void OnBecameInvisible()
     {
@@ -54,15 +48,16 @@ public class SoldierState : MonoBehaviour
 
     void CheckIfSeen()
     {
-        if (Physics.Linecast(player.transform.position, this.transform.position, npcLayer))
+        Ray re = new Ray(player.transform.position, this.transform.position);
+        if (Physics.Raycast(re, out RaycastHit hitInfo, camRange))
         {
             canSee = false;
-            Debug.DrawLine(player.transform.position, this.transform.position, Color.green, 15, false);
-            Debug.Log("Blocked");
+
         }
         else
         {
             canSee = true;
         }
     }
+
 }
