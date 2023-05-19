@@ -52,7 +52,11 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: impish 1
+<<<<<<< HEAD
   m_Speed: 0.65
+=======
+  m_Speed: 1
+>>>>>>> parent of 7823a68 (animtionsn)
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
